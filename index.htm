@@ -3,27 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Sahpar Ozer — Mechanical Engineer</title>
+<title>Sahpar Ozer — Mechanical Engineer & Researcher</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream: #f5f0e8;
-  --rust:  #c84b2f;
-  --steel: #2e3d4f;
-  --lime:  #b8e04a;
-  --sand:  #e8dcc8;
-  --ink:   #1a1a1a;
-  --sky:   #5bbfd6;
-  --warm:  #f0a842;
+  --white:   #ffffff;
+  --lilac:   #b084cc;
+  --lilac-light: #d4b0e8;
+  --lilac-pale:  #f0e4f8;
+  --lilac-deep:  #7c4fa0;
+  --lilac-dark:  #3d1f5c;
+  --lavender:#e8d5f5;
+  --ink:     #1a0a2e;
+  --mist:    #f7f0fc;
+  --mid:     #9b6bbf;
   --display: 'Bebas Neue', sans-serif;
   --body:    'Space Grotesk', sans-serif;
   --mono:    'IBM Plex Mono', monospace;
 }
 
 html { scroll-behavior: smooth; }
-body { background: var(--cream); color: var(--ink); font-family: var(--body); overflow-x: hidden; }
+body { background: var(--mist); color: var(--ink); font-family: var(--body); overflow-x: hidden; }
 
 /* ── NAV ─── */
 nav {
@@ -31,13 +33,13 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 3rem;
   height: 64px;
-  background: var(--ink);
-  border-bottom: 3px solid var(--rust);
+  background: var(--lilac-dark);
+  border-bottom: 3px solid var(--lilac);
 }
 .nav-logo {
   font-family: var(--display);
   font-size: 1.6rem;
-  color: var(--lime);
+  color: var(--lilac-light);
   text-decoration: none;
   letter-spacing: 0.05em;
 }
@@ -50,13 +52,13 @@ nav {
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
-  color: #aaa;
+  color: #c9a8e0;
   text-decoration: none;
   text-transform: uppercase;
-  border-left: 1px solid #2a2a2a;
+  border-left: 1px solid rgba(176,132,204,0.2);
   transition: background 0.2s, color 0.2s;
 }
-.nav-links a:hover { background: var(--rust); color: white; }
+.nav-links a:hover { background: var(--lilac); color: white; }
 
 /* ── HERO ─── */
 #hero {
@@ -67,7 +69,7 @@ nav {
   grid-template-rows: 1fr auto;
 }
 .hero-left {
-  background: var(--ink);
+  background: var(--lilac-dark);
   padding: 5rem 4rem 4rem;
   display: flex; flex-direction: column; justify-content: flex-end;
   position: relative;
@@ -77,14 +79,14 @@ nav {
   content: '';
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(184,224,74,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184,224,74,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(176,132,204,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176,132,204,0.08) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 .hero-eyebrow {
   font-family: var(--mono);
   font-size: 0.72rem;
-  color: var(--rust);
+  color: var(--lilac-light);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -95,21 +97,21 @@ nav {
   content: '';
   display: inline-block;
   width: 2rem; height: 2px;
-  background: var(--rust);
+  background: var(--lilac);
 }
 h1 {
   font-family: var(--display);
   font-size: clamp(5rem, 12vw, 11rem);
   line-height: 0.88;
   letter-spacing: 0.02em;
-  color: var(--cream);
+  color: var(--white);
   position: relative;
   margin-bottom: 2.5rem;
 }
-h1 span { color: var(--lime); display: block; }
+h1 span { color: var(--lilac-light); display: block; }
 .hero-desc {
   font-size: 1rem;
-  color: #888;
+  color: #c9a8e0;
   max-width: 440px;
   line-height: 1.7;
   position: relative;
@@ -130,20 +132,20 @@ h1 span { color: var(--lime); display: block; }
   transition: all 0.2s;
   clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
 }
-.btn-rust { background: var(--rust); color: white; }
-.btn-rust:hover { background: #e05535; transform: translateY(-2px); }
-.btn-lime { background: var(--lime); color: var(--ink); }
-.btn-lime:hover { background: #caf55e; transform: translateY(-2px); }
+.btn-primary { background: var(--lilac); color: white; }
+.btn-primary:hover { background: var(--mid); transform: translateY(-2px); }
+.btn-secondary { background: var(--lilac-light); color: var(--ink); }
+.btn-secondary:hover { background: #e8c8f8; transform: translateY(-2px); }
 
 .hero-right {
-  background: var(--rust);
+  background: var(--lilac);
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 3rem;
   position: relative;
   overflow: hidden;
 }
 .hero-right::before {
-  content: 'STRUCT\AURAL';
+  content: 'ENGI\ANEER';
   white-space: pre;
   font-family: var(--display);
   font-size: 9rem;
@@ -160,25 +162,25 @@ h1 span { color: var(--lime); display: block; }
   display: flex; align-items: baseline; gap: 1rem;
   transition: background 0.2s;
 }
-.stat-block:hover { background: rgba(255,255,255,0.2); }
+.stat-block:hover { background: rgba(255,255,255,0.22); }
 .stat-num {
   font-family: var(--display);
   font-size: 3.5rem;
-  color: var(--lime);
+  color: var(--white);
   line-height: 1;
   letter-spacing: 0.02em;
 }
 .stat-txt {
   font-family: var(--mono);
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.75);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1.4;
 }
 .hero-bottom {
   grid-column: 1 / -1;
-  background: var(--lime);
+  background: var(--lilac-light);
   padding: 1rem 4rem;
   display: flex; gap: 4rem; align-items: center;
   overflow: hidden;
@@ -188,11 +190,11 @@ h1 span { color: var(--lime); display: block; }
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--ink);
+  color: var(--lilac-dark);
   white-space: nowrap;
   display: flex; align-items: center; gap: 1rem;
 }
-.ticker-item::before { content: '◆'; font-size: 0.5rem; color: var(--rust); }
+.ticker-item::before { content: '◆'; font-size: 0.5rem; color: var(--lilac-deep); }
 
 /* ── SECTION SHARED ─── */
 section { padding: 6rem 4rem; }
@@ -203,6 +205,7 @@ section { padding: 6rem 4rem; }
   text-transform: uppercase;
   display: flex; align-items: center; gap: 0.75rem;
   margin-bottom: 1.25rem;
+  color: var(--lilac-deep);
 }
 .section-tag::after {
   content: '';
@@ -221,7 +224,7 @@ h2 {
 }
 
 /* ── ABOUT ─── */
-#about { background: var(--cream); }
+#about { background: var(--mist); }
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -231,7 +234,7 @@ h2 {
 .about-copy p {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: #444;
+  color: #4a3060;
   margin-bottom: 1.25rem;
 }
 .about-copy p strong { color: var(--ink); }
@@ -239,24 +242,24 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: var(--ink);
-  border: 1px solid var(--ink);
+  background: var(--lilac);
+  border: 1px solid var(--lilac);
   margin-top: 2rem;
 }
 .discipline-cell {
-  background: var(--cream);
+  background: var(--white);
   padding: 1.1rem 1.25rem;
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: #555;
+  color: #6b4a88;
   transition: background 0.2s, color 0.2s;
 }
-.discipline-cell:hover { background: var(--steel); color: var(--lime); }
+.discipline-cell:hover { background: var(--lilac-dark); color: var(--lilac-light); }
 .discipline-cell strong { display: block; color: var(--ink); font-weight: 500; font-family: var(--body); font-size: 0.9rem; margin-bottom: 0.2rem; }
-.discipline-cell:hover strong { color: var(--lime); }
+.discipline-cell:hover strong { color: var(--lilac-light); }
 
 .profile-card {
-  background: var(--steel);
+  background: var(--lilac-dark);
   padding: 2rem;
   position: relative;
 }
@@ -265,12 +268,12 @@ h2 {
   position: absolute;
   top: -6px; right: -6px;
   width: 100%; height: 100%;
-  border: 2px solid var(--rust);
+  border: 2px solid var(--lilac);
   z-index: -1;
 }
 .profile-avatar {
   width: 100%; aspect-ratio: 1;
-  background: var(--sand);
+  background: var(--lilac-deep);
   margin-bottom: 1.5rem;
   display: flex; align-items: center; justify-content: center;
   position: relative;
@@ -279,20 +282,20 @@ h2 {
 .avatar-initials {
   font-family: var(--display);
   font-size: 6rem;
-  color: var(--steel);
-  opacity: 0.3;
+  color: var(--lilac-light);
+  opacity: 0.4;
 }
 .profile-name {
   font-family: var(--display);
   font-size: 2rem;
-  color: var(--cream);
+  color: var(--white);
   letter-spacing: 0.04em;
   margin-bottom: 0.25rem;
 }
 .profile-title {
   font-family: var(--mono);
   font-size: 0.72rem;
-  color: var(--sky);
+  color: var(--lilac-light);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1.25rem;
@@ -300,25 +303,25 @@ h2 {
 .profile-detail {
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: #888;
+  color: #c9a8e0;
   line-height: 2;
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 1rem;
 }
-.profile-detail span { color: var(--cream); }
+.profile-detail span { color: var(--white); }
 
 /* ── PROJECTS ─── */
-#projects { background: var(--sand); }
+#projects { background: var(--lavender); }
 .projects-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
 .projects-header h2 { margin-bottom: 0; }
 .view-all {
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: var(--rust);
+  color: var(--lilac-deep);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  border-bottom: 1px solid var(--rust);
+  border-bottom: 1px solid var(--lilac-deep);
   padding-bottom: 2px;
 }
 
@@ -344,11 +347,11 @@ h2 {
   position: relative;
   overflow: hidden;
 }
-.proj:nth-child(1) .proj-thumb { background: var(--steel); color: var(--sky); }
-.proj:nth-child(2) .proj-thumb { background: var(--rust); color: var(--cream); }
-.proj:nth-child(3) .proj-thumb { background: var(--lime); color: var(--ink); }
-.proj:nth-child(4) .proj-thumb { background: var(--ink); color: var(--warm); }
-.proj:nth-child(5) .proj-thumb { background: var(--sky); color: white; }
+.proj:nth-child(1) .proj-thumb { background: var(--lilac-dark); color: var(--lilac-light); }
+.proj:nth-child(2) .proj-thumb { background: var(--lilac); color: var(--white); }
+.proj:nth-child(3) .proj-thumb { background: var(--lilac-light); color: var(--lilac-dark); }
+.proj:nth-child(4) .proj-thumb { background: var(--ink); color: var(--lilac-light); }
+.proj:nth-child(5) .proj-thumb { background: var(--mid); color: white; }
 
 .proj-thumb-label {
   position: absolute;
@@ -391,13 +394,13 @@ h2 {
   font-family: var(--mono);
   font-size: 0.65rem;
   padding: 0.2rem 0.5rem;
-  border: 1px solid #ddd;
-  color: #888;
+  border: 1px solid var(--lilac-light);
+  color: var(--lilac-deep);
 }
 .proj-link {
   font-family: var(--mono);
   font-size: 0.7rem;
-  color: var(--rust);
+  color: var(--lilac-deep);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -405,9 +408,9 @@ h2 {
 }
 
 /* ── EXPERIENCE ─── */
-#experience { background: var(--steel); }
-#experience .section-tag { color: var(--sky); }
-#experience h2 { color: var(--cream); }
+#experience { background: var(--lilac-dark); }
+#experience .section-tag { color: var(--lilac-light); }
+#experience h2 { color: var(--white); }
 
 .exp-timeline {
   position: relative;
@@ -418,7 +421,7 @@ h2 {
   position: absolute; left: 0; top: 0; bottom: 0;
   width: 2px;
   background: repeating-linear-gradient(
-    to bottom, var(--lime) 0px, var(--lime) 12px, transparent 12px, transparent 20px
+    to bottom, var(--lilac-light) 0px, var(--lilac-light) 12px, transparent 12px, transparent 20px
   );
 }
 .exp-entry {
@@ -433,34 +436,34 @@ h2 {
   content: '';
   position: absolute; left: -7px; top: 6px;
   width: 16px; height: 16px;
-  background: var(--rust);
+  background: var(--lilac);
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 .exp-when {
   font-family: var(--mono);
   font-size: 0.72rem;
-  color: var(--sky);
+  color: var(--lilac-light);
   letter-spacing: 0.06em;
   padding-top: 0.15rem;
 }
 .exp-company-name {
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: var(--lime);
+  color: var(--lilac-light);
   margin-top: 0.35rem;
   letter-spacing: 0.04em;
 }
 .exp-role-title {
   font-family: var(--display);
   font-size: 1.5rem;
-  color: var(--cream);
+  color: var(--white);
   letter-spacing: 0.04em;
   margin-bottom: 0.75rem;
 }
 .exp-bullets { list-style: none; }
 .exp-bullets li {
   font-size: 0.9rem;
-  color: #9aadbd;
+  color: #c9a8e0;
   line-height: 1.65;
   padding-left: 1.2rem;
   position: relative;
@@ -469,7 +472,7 @@ h2 {
 .exp-bullets li::before {
   content: '▸';
   position: absolute; left: 0;
-  color: var(--rust);
+  color: var(--lilac-light);
   font-size: 0.75rem;
 }
 .exp-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
@@ -478,13 +481,13 @@ h2 {
   font-size: 0.65rem;
   padding: 0.2rem 0.6rem;
   background: rgba(255,255,255,0.07);
-  color: var(--sky);
-  border: 1px solid rgba(91,191,214,0.25);
+  color: var(--lilac-light);
+  border: 1px solid rgba(176,132,204,0.3);
   letter-spacing: 0.06em;
 }
 
 /* ── CONTACT ─── */
-#contact { background: var(--cream); }
+#contact { background: var(--mist); }
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -492,7 +495,7 @@ h2 {
   align-items: start;
 }
 .contact-panel-left {
-  background: var(--ink);
+  background: var(--lilac-dark);
   padding: 3.5rem;
   position: relative;
   overflow: hidden;
@@ -511,8 +514,8 @@ h2 {
   letter-spacing: 0.02em;
   pointer-events: none;
 }
-.contact-panel-left h2 { color: var(--cream); margin-bottom: 1rem; font-size: 3.5rem; }
-.contact-panel-left p { color: #777; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2.5rem; }
+.contact-panel-left h2 { color: var(--white); margin-bottom: 1rem; font-size: 3.5rem; }
+.contact-panel-left p { color: #c9a8e0; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2.5rem; }
 .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
 .contact-link-row {
   display: flex; align-items: center; gap: 1rem;
@@ -522,23 +525,23 @@ h2 {
   text-decoration: none;
   transition: all 0.2s;
 }
-.contact-link-row:hover { background: rgba(255,255,255,0.08); border-left-color: var(--rust); }
+.contact-link-row:hover { background: rgba(255,255,255,0.08); border-left-color: var(--lilac); }
 .contact-link-icon {
   font-family: var(--mono);
   font-size: 0.7rem;
-  color: var(--rust);
+  color: var(--lilac-light);
   width: 28px;
   text-align: center;
 }
 .contact-link-text {
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: #aaa;
+  color: #c9a8e0;
 }
-.contact-link-row:hover .contact-link-text { color: var(--cream); }
+.contact-link-row:hover .contact-link-text { color: var(--white); }
 
 .contact-panel-right {
-  background: var(--rust);
+  background: var(--lilac);
   padding: 3.5rem;
 }
 .contact-panel-right h3 {
@@ -553,15 +556,15 @@ h2 {
   display: block;
   font-family: var(--mono);
   font-size: 0.68rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.7);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
 }
 .field-input, .field-textarea {
   width: 100%;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
   padding: 0.85rem 1rem;
   color: white;
   font-family: var(--body);
@@ -570,17 +573,17 @@ h2 {
   border-radius: 0;
   transition: background 0.2s, border-color 0.2s;
 }
-.field-input::placeholder, .field-textarea::placeholder { color: rgba(255,255,255,0.35); }
+.field-input::placeholder, .field-textarea::placeholder { color: rgba(255,255,255,0.4); }
 .field-input:focus, .field-textarea:focus {
-  background: rgba(255,255,255,0.18);
-  border-color: var(--lime);
+  background: rgba(255,255,255,0.22);
+  border-color: var(--lilac-light);
 }
 .field-textarea { min-height: 130px; resize: vertical; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .submit-btn {
   width: 100%; margin-top: 0.5rem;
-  background: var(--lime);
-  color: var(--ink);
+  background: var(--lilac-dark);
+  color: var(--white);
   border: none;
   padding: 1rem;
   font-family: var(--mono);
@@ -591,38 +594,38 @@ h2 {
   clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
   transition: background 0.2s, transform 0.15s;
 }
-.submit-btn:hover { background: #caf55e; transform: translateY(-1px); }
+.submit-btn:hover { background: var(--lilac-deep); transform: translateY(-1px); }
 
 /* ── FOOTER ─── */
 footer {
-  background: var(--ink);
-  border-top: 3px solid var(--lime);
+  background: var(--lilac-dark);
+  border-top: 3px solid var(--lilac);
   padding: 1.75rem 4rem;
   display: flex; align-items: center; justify-content: space-between;
 }
 .foot-logo {
   font-family: var(--display);
   font-size: 1.4rem;
-  color: var(--lime);
+  color: var(--lilac-light);
   letter-spacing: 0.05em;
 }
 .foot-copy {
   font-family: var(--mono);
   font-size: 0.68rem;
-  color: #555;
+  color: #9b6bbf;
   letter-spacing: 0.06em;
 }
 .foot-links { display: flex; gap: 2rem; }
 .foot-links a {
   font-family: var(--mono);
   font-size: 0.68rem;
-  color: #666;
+  color: #9b6bbf;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   transition: color 0.2s;
 }
-.foot-links a:hover { color: var(--rust); }
+.foot-links a:hover { color: var(--lilac-light); }
 
 /* ── RESPONSIVE ─── */
 @media (max-width: 960px) {
@@ -657,74 +660,76 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Structural &amp; Civil Engineer</p>
+    <p class="hero-eyebrow">Mechanical Engineer & Researcher · Vanderbilt University</p>
     <h1>SAHPAR<span>OZER.</span></h1>
     <p class="hero-desc">
-      I design infrastructure that lasts — bridges, frameworks, foundations, and the systems
-      that hold cities together. Based in Nashville, TN. Licensed PE.
+      Mechanical Engineering & Economics student at Vanderbilt University with hands-on research in
+      nanoscience, astrophysics, and microfabrication. Based in Nashville, TN.
+      Cornelius Vanderbilt Merit Scholar.
     </p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn btn-rust">See projects</a>
-      <a href="#contact" class="btn btn-lime">Hire me</a>
+      <a href="#projects" class="btn btn-primary">See projects</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="stat-stack">
       <div class="stat-block">
-        <div class="stat-num">14</div>
-        <div class="stat-txt">Years of<br>practice</div>
+        <div class="stat-num">3.2</div>
+        <div class="stat-txt">GPA at<br>Vanderbilt</div>
       </div>
       <div class="stat-block">
-        <div class="stat-num">60+</div>
-        <div class="stat-txt">Projects<br>completed</div>
+        <div class="stat-num">5+</div>
+        <div class="stat-txt">Research<br>positions</div>
       </div>
       <div class="stat-block">
-        <div class="stat-num">$2B</div>
-        <div class="stat-txt">Construction<br>value managed</div>
+        <div class="stat-num">250</div>
+        <div class="stat-txt">BPT diagrams<br>created</div>
       </div>
       <div class="stat-block">
-        <div class="stat-num">PE</div>
-        <div class="stat-txt">Licensed in<br>TN, KY, GA</div>
+        <div class="stat-num">1st</div>
+        <div class="stat-txt">NASA SpaceApps<br>Turkey winner</div>
       </div>
     </div>
   </div>
   <div class="hero-bottom">
-    <div class="ticker-item">Structural Analysis</div>
-    <div class="ticker-item">Foundation Design</div>
-    <div class="ticker-item">Bridge Engineering</div>
-    <div class="ticker-item">Seismic Assessment</div>
-    <div class="ticker-item">AutoCAD · Revit · SAP2000</div>
-    <div class="ticker-item">AASHTO · ACI · AISC</div>
+    <div class="ticker-item">Nanoscale Engineering</div>
+    <div class="ticker-item">Astrophysics Research</div>
+    <div class="ticker-item">Microfabrication</div>
+    <div class="ticker-item">Python · C++ · CAD</div>
+    <div class="ticker-item">Motorsports Design</div>
+    <div class="ticker-item">NASA SpaceApps Global Finalist</div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-tag" style="color: var(--rust);">01 — About me</div>
+  <div class="section-tag">01 — About me</div>
   <div class="about-layout">
     <div class="about-copy">
-      <h2>BUILT ON<br>SOLID GROUND</h2>
+      <h2>BUILT ON<br>CURIOSITY</h2>
       <p>
-        I'm a licensed structural and civil engineer with <strong>14 years of experience</strong>
-        designing load-bearing systems, transportation infrastructure, and commercial structures
-        across the southeastern United States.
+        I'm a <strong>Mechanical Engineering & Economics</strong> student at Vanderbilt University,
+        pursuing a Minor in Nanoscience and Nanotechnology. A Cornelius Vanderbilt Merit Scholar,
+        I bring both analytical rigor and creative problem-solving to every project.
       </p>
       <p>
-        My work spans early-phase feasibility through construction administration, with particular
-        depth in <strong>steel and concrete design</strong>, geotechnical coordination,
-        and code-compliant seismic detailing.
+        My research spans from <strong>graphene CVD growth</strong> and tissue microfabrication
+        at Vanderbilt's nanoscale labs, to <strong>ionized gas kinematics</strong> in distant galaxies
+        at UC Santa Cruz, to exoplanet discovery at George Mason University.
       </p>
       <p>
-        I believe good engineering is invisible — when structure is done right, people move
-        through it without thinking twice. That's the goal.
+        I believe engineering and science are most powerful when they intersect disciplines —
+        whether that's applying mesh optimization to aerospace, or combining economics with
+        mechanical design to solve real-world challenges.
       </p>
       <div class="discipline-grid">
-        <div class="discipline-cell"><strong>Structural Design</strong>Steel, concrete, timber framing</div>
-        <div class="discipline-cell"><strong>Bridge Engineering</strong>Inspection &amp; load rating</div>
-        <div class="discipline-cell"><strong>Site Civil</strong>Grading, drainage, utilities</div>
-        <div class="discipline-cell"><strong>Seismic Design</strong>ASCE 7 &amp; IBC compliance</div>
-        <div class="discipline-cell"><strong>Construction Admin</strong>RFIs, submittals, site visits</div>
-        <div class="discipline-cell"><strong>Forensic Eng.</strong>Failure analysis &amp; litigation</div>
+        <div class="discipline-cell"><strong>Nanoscale Engineering</strong>CVD growth, graphene devices</div>
+        <div class="discipline-cell"><strong>Astrophysics</strong>BPT diagrams, exoplanet research</div>
+        <div class="discipline-cell"><strong>Microfabrication</strong>Tissue engineering, vascularization</div>
+        <div class="discipline-cell"><strong>Aerospace Optimization</strong>Mesh algorithms, Halton sequences</div>
+        <div class="discipline-cell"><strong>CAD / CAE Design</strong>Motorsports & race car components</div>
+        <div class="discipline-cell"><strong>Data Science</strong>Python, Jupyter, C++, Dart Flutter</div>
       </div>
     </div>
     <div class="profile-card">
@@ -732,13 +737,13 @@ footer {
         <div class="avatar-initials">SO</div>
       </div>
       <div class="profile-name">SAHPAR OZER</div>
-      <div class="profile-title">PE, SE · Principal Engineer</div>
+      <div class="profile-title">BE Mechanical Engineering & Economics</div>
       <div class="profile-detail">
         Based in <span>Nashville, TN</span><br>
-        Licensed <span>PE — TN / KY / GA</span><br>
-        Education <span>MS Civil Eng., Vanderbilt</span><br>
-        Member <span>ASCE, SEI, NSPE</span><br>
-        Available <span>New projects from Jan 2026</span>
+        University <span>Vanderbilt, Class of 2028</span><br>
+        Languages <span>English · Turkish · German</span><br>
+        Clubs <span>Delta Sigma Pi · Motorsports</span><br>
+        Open to <span>Research & internship roles</span>
       </div>
     </div>
   </div>
@@ -746,7 +751,7 @@ footer {
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-tag" style="color: var(--rust);">02 — Projects</div>
+  <div class="section-tag">02 — Projects</div>
   <div class="projects-header">
     <h2>SELECTED<br>WORK</h2>
     <a href="#" class="view-all">Full portfolio ↗</a>
@@ -755,21 +760,22 @@ footer {
 
     <div class="proj">
       <div class="proj-thumb">
-        SPAN
-        <div class="proj-thumb-label">Bridge / 2023</div>
+        NANO
+        <div class="proj-thumb-label">Nanoscience / 2024–Present</div>
       </div>
       <div class="proj-body">
         <div class="proj-num">Project 01</div>
-        <div class="proj-title">Shelby Avenue Pedestrian Bridge</div>
+        <div class="proj-title">Graphene Device Development at VINSE</div>
         <p class="proj-desc">
-          200-ft steel cable-stayed bridge over the Cumberland River. Designed for 200psf live load
-          with seismic detailing per ASCE 7-22. Awarded ASCE Tennessee Project of the Year.
+          Developed reusable graphene devices through CVD growth recipes and simple circuit designs
+          at the Vanderbilt Institute of Nanoscale Science and Engineering, enhancing accessibility
+          for students and researchers.
         </p>
         <div class="proj-meta">
           <div class="proj-tags">
-            <span class="proj-tag">Steel</span>
-            <span class="proj-tag">Cable-stayed</span>
-            <span class="proj-tag">AASHTO LRFD</span>
+            <span class="proj-tag">CVD Growth</span>
+            <span class="proj-tag">Graphene</span>
+            <span class="proj-tag">Nanofabrication</span>
           </div>
           <a href="#" class="proj-link">View ↗</a>
         </div>
@@ -778,20 +784,20 @@ footer {
 
     <div class="proj">
       <div class="proj-thumb">
-        CORE
-        <div class="proj-thumb-label">High-rise / 2022</div>
+        BPT
+        <div class="proj-thumb-label">Astrophysics / 2022–2024</div>
       </div>
       <div class="proj-body">
         <div class="proj-num">Project 02</div>
-        <div class="proj-title">One Capitol View Tower Structural</div>
+        <div class="proj-title">Ionized Gas Kinematics — M33 & Andromeda</div>
         <p class="proj-desc">
-          32-story mixed-use tower. Concrete core with outrigger trusses. Lateral system designed
-          for wind and seismic per IBC 2021.
+          Created 250 BPT diagrams using Python and Jupyter Notebooks to analyze star-forming
+          regions in M33 and Andromeda Galaxies at UC Santa Cruz.
         </p>
         <div class="proj-meta">
           <div class="proj-tags">
-            <span class="proj-tag">Concrete</span>
-            <span class="proj-tag">Outrigger</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">Astrophysics</span>
           </div>
           <a href="#" class="proj-link">View ↗</a>
         </div>
@@ -800,20 +806,20 @@ footer {
 
     <div class="proj">
       <div class="proj-thumb">
-        BASE
-        <div class="proj-thumb-label">Forensic / 2023</div>
+        VASC
+        <div class="proj-thumb-label">Bioengineering / 2024–Present</div>
       </div>
       <div class="proj-body">
         <div class="proj-num">Project 03</div>
-        <div class="proj-title">Downtown Parking Deck Forensic Report</div>
+        <div class="proj-title">Microfabrication for Engineered Tissues</div>
         <p class="proj-desc">
-          Assessment of post-tension slab deterioration. Identified strand corrosion and
-          design deficiency. Led remediation plan saving $4M vs. full demolition.
+          Investigating advanced microfabrication techniques and mechanical stimulation to guide
+          vascularization in engineered tissues at Bellan Lab for Advanced Materials.
         </p>
         <div class="proj-meta">
           <div class="proj-tags">
-            <span class="proj-tag">PT Concrete</span>
-            <span class="proj-tag">Forensic</span>
+            <span class="proj-tag">Microfab</span>
+            <span class="proj-tag">Tissue Eng.</span>
           </div>
           <a href="#" class="proj-link">View ↗</a>
         </div>
@@ -822,20 +828,20 @@ footer {
 
     <div class="proj">
       <div class="proj-thumb">
-        FLOW
-        <div class="proj-thumb-label">Site Civil / 2021</div>
+        MESH
+        <div class="proj-thumb-label">Aerospace / 2022</div>
       </div>
       <div class="proj-body">
         <div class="proj-num">Project 04</div>
-        <div class="proj-title">East Nashville Greenway Drainage</div>
+        <div class="proj-title">Aerospace Mesh Optimization — ITU</div>
         <p class="proj-desc">
-          2.4-mile multi-use trail with complete stormwater system design. Coordinated with
-          Metro Water Services on outfall permitting and bioretention features.
+          Gained experience in 4 mesh generation algorithms and optimization using Halton sequences
+          at ITU Aerospace Optimization Lab, improving computational efficiency and accuracy.
         </p>
         <div class="proj-meta">
           <div class="proj-tags">
-            <span class="proj-tag">Hydrology</span>
-            <span class="proj-tag">Grading</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">CAD/CAE</span>
           </div>
           <a href="#" class="proj-link">View ↗</a>
         </div>
@@ -844,20 +850,20 @@ footer {
 
     <div class="proj">
       <div class="proj-thumb">
-        LOAD
-        <div class="proj-thumb-label">Industrial / 2024</div>
+        RACE
+        <div class="proj-thumb-label">Motorsports / 2024–Present</div>
       </div>
       <div class="proj-body">
         <div class="proj-num">Project 05</div>
-        <div class="proj-title">Bridgestone Distribution Hub</div>
+        <div class="proj-title">Vanderbilt Motorsports Race Car Design</div>
         <p class="proj-desc">
-          480,000 sq ft tilt-up warehouse with crane runway beams, heavy floor slabs, and
-          dock equipment foundations. Fast-tracked design-build delivery.
+          Contributing to design, fabrication, and optimization of race cars using CAD, applying
+          F1 engineering principles to improve performance, safety, and efficiency.
         </p>
         <div class="proj-meta">
           <div class="proj-tags">
-            <span class="proj-tag">Tilt-up</span>
-            <span class="proj-tag">Industrial</span>
+            <span class="proj-tag">CAD</span>
+            <span class="proj-tag">Fabrication</span>
           </div>
           <a href="#" class="proj-link">View ↗</a>
         </div>
@@ -876,60 +882,120 @@ footer {
 
     <div class="exp-entry">
       <div>
-        <div class="exp-when">2019 — Present</div>
-        <div class="exp-company-name">Rivera Structural Consulting</div>
+        <div class="exp-when">Aug 2024 — Dec 2024</div>
+        <div class="exp-company-name">Amazon</div>
       </div>
       <div>
-        <div class="exp-role-title">PRINCIPAL ENGINEER</div>
+        <div class="exp-role-title">INTERN</div>
         <ul class="exp-bullets">
-          <li>Founded independent structural consulting practice; grown to 4 licensed engineers.</li>
-          <li>Leads structural design on $200M+ annual construction volume across TN, KY, and GA.</li>
-          <li>Specialises in complex lateral systems, forensic investigation, and peer review.</li>
+          <li>Developed internal and external communication plans for Reduction in Force and RTO, guided by experienced Amazon employees.</li>
+          <li>Collected and analyzed data from 500 Amazon workers to effectively align strategies with organizational needs and industry best practices.</li>
+          <li>Gained insights into Amazon's culture and core values by collaborating with 5 different teams and departments.</li>
         </ul>
         <div class="exp-badges">
-          <span class="exp-badge">SAP2000</span>
-          <span class="exp-badge">ETABS</span>
-          <span class="exp-badge">Revit Structure</span>
-          <span class="exp-badge">RISA</span>
+          <span class="exp-badge">Data Analysis</span>
+          <span class="exp-badge">Communications</span>
+          <span class="exp-badge">Strategy</span>
         </div>
       </div>
     </div>
 
     <div class="exp-entry">
       <div>
-        <div class="exp-when">2014 — 2019</div>
-        <div class="exp-company-name">Gresham Smith</div>
+        <div class="exp-when">Dec 2024 — Present</div>
+        <div class="exp-company-name">Vanderbilt Inst. of Nanoscale Science & Eng.</div>
       </div>
       <div>
-        <div class="exp-role-title">SENIOR STRUCTURAL ENGINEER</div>
+        <div class="exp-role-title">TECH CREW</div>
         <ul class="exp-bullets">
-          <li>Managed structural design for healthcare, aviation, and mixed-use projects up to $400M.</li>
-          <li>Led BIM coordination between structural, MEP, and architectural models across 12 projects.</li>
-          <li>Mentored junior engineers; developed in-house concrete detailing standards.</li>
+          <li>Acquired training and certification in key nanoscale engineering processes, building expertise in advanced techniques and cutting-edge methodologies.</li>
+          <li>Supported 20 researchers by assisting with equipment setup, calibration, and troubleshooting.</li>
+          <li>Developed reusable Graphene devices through CVD growth recipes and simple circuit designs.</li>
         </ul>
         <div class="exp-badges">
-          <span class="exp-badge">Revit</span>
-          <span class="exp-badge">Navisworks</span>
-          <span class="exp-badge">AutoCAD</span>
+          <span class="exp-badge">CVD Growth</span>
+          <span class="exp-badge">Graphene</span>
+          <span class="exp-badge">Nanofabrication</span>
         </div>
       </div>
     </div>
 
     <div class="exp-entry">
       <div>
-        <div class="exp-when">2010 — 2014</div>
-        <div class="exp-company-name">TDOT — Tennessee DOT</div>
+        <div class="exp-when">Sep 2024 — Present</div>
+        <div class="exp-company-name">Bellan Lab for Advanced Materials</div>
       </div>
       <div>
-        <div class="exp-role-title">BRIDGE DESIGN ENGINEER</div>
+        <div class="exp-role-title">RESEARCH ASSISTANT</div>
         <ul class="exp-bullets">
-          <li>Designed and load-rated 40+ bridge structures on state highway system.</li>
-          <li>Contributed to I-24 interchange rehabilitation — $85M project, delivered on schedule.</li>
+          <li>Investigating advanced microfabrication techniques to enhance engineered tissues using lab equipment in controlled environments.</li>
+          <li>Utilizing mechanical stimulation to guide vascularization, calibrating specialized instruments for precise results.</li>
+          <li>Aiming to improve tissue organization through innovative approaches with strict adherence to sterile protocols.</li>
         </ul>
         <div class="exp-badges">
-          <span class="exp-badge">AASHTO LRFD</span>
-          <span class="exp-badge">MathCAD</span>
-          <span class="exp-badge">ArcGIS</span>
+          <span class="exp-badge">Microfabrication</span>
+          <span class="exp-badge">Tissue Engineering</span>
+          <span class="exp-badge">Sterile Lab</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div>
+        <div class="exp-when">May 2022 — Aug 2022</div>
+        <div class="exp-company-name">ITU Aerospace Optimization Lab</div>
+      </div>
+      <div>
+        <div class="exp-role-title">RESEARCH INTERN</div>
+        <ul class="exp-bullets">
+          <li>Gained experience in 4 different mesh generation algorithms and optimization using Halton sequences.</li>
+          <li>Worked with Python and Jupyter Notebooks for data analysis and simulations to solve complex aerospace problems.</li>
+          <li>Familiar with CAD/CAE software for geometry modeling and integration.</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="exp-badge">Python</span>
+          <span class="exp-badge">Jupyter</span>
+          <span class="exp-badge">CAD/CAE</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div>
+        <div class="exp-when">May 2022 — Sep 2024</div>
+        <div class="exp-company-name">University of California, Santa Cruz</div>
+      </div>
+      <div>
+        <div class="exp-role-title">RESEARCH INTERN</div>
+        <ul class="exp-bullets">
+          <li>Worked on Ionized Gas Kinematics and Physical Conditions in M33 and Andromeda Galaxies, analyzing complex dynamics.</li>
+          <li>Created 250 BPT diagrams using Python and Jupyter Notebooks to analyze star-forming regions.</li>
+          <li>Studied Broad Emission-Lined Luminous Sources (BELLS), contributing insights to galactic formation and evolution.</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="exp-badge">Python</span>
+          <span class="exp-badge">Astrophysics</span>
+          <span class="exp-badge">Data Viz</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div>
+        <div class="exp-when">Jun 2023 — Sep 2024</div>
+        <div class="exp-company-name">George Mason University</div>
+      </div>
+      <div>
+        <div class="exp-role-title">RESEARCH INTERN</div>
+        <ul class="exp-bullets">
+          <li>Worked in Professor Plavchan's Astrophysics research group, focusing on exoplanet research and advanced analysis techniques.</li>
+          <li>Contributed to projects studying exoplanetary systems and their potential for habitability and astrobiological research.</li>
+          <li>Invited to participate in Professor Plavchan's designated summer program with NASA.</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="exp-badge">Exoplanets</span>
+          <span class="exp-badge">NASA</span>
+          <span class="exp-badge">Astrobiology</span>
         </div>
       </div>
     </div>
@@ -939,18 +1005,18 @@ footer {
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-tag" style="color: var(--rust);">04 — Contact</div>
+  <div class="section-tag">04 — Contact</div>
   <div class="contact-layout">
     <div class="contact-panel-left">
-      <h2>LET'S<br>BUILD.</h2>
+      <h2>LET'S<br>CONNECT.</h2>
       <p>
-        Available for structural consulting, peer review, and project-based engagements.
+        Open to research collaborations, internships, and project-based engagements.
         I respond to all enquiries within one business day.
       </p>
       <div class="contact-links">
-        <a href="mailto:sahpar.n.ozer@vandebrilt.edu" class="contact-link-row">
+        <a href="mailto:sahpar.n.ozer@vanderbilt.edu" class="contact-link-row">
           <div class="contact-link-icon">@</div>
-          <div class="contact-link-text">sahpar.n.ozer@vandebrilt.edu</div>
+          <div class="contact-link-text">sahpar.n.ozer@vanderbilt.edu</div>
         </a>
         <a href="tel:+16155218787" class="contact-link-row">
           <div class="contact-link-icon">tel</div>
@@ -983,14 +1049,14 @@ footer {
         <input type="email" class="field-input" placeholder="jane@company.com">
       </div>
       <div class="field-group">
-        <label class="field-label">Project type</label>
-        <input type="text" class="field-input" placeholder="e.g. Structural design, peer review...">
+        <label class="field-label">Inquiry type</label>
+        <input type="text" class="field-input" placeholder="e.g. Research collaboration, internship...">
       </div>
       <div class="field-group">
         <label class="field-label">Message</label>
-        <textarea class="field-textarea" placeholder="Tell me about your project — scope, timeline, location..."></textarea>
+        <textarea class="field-textarea" placeholder="Tell me about your project or opportunity..."></textarea>
       </div>
-      <button class="submit-btn" onclick="alert('Message sent! Connect to your backend or Formspree to handle submissions.')">
+      <button class="submit-btn" onclick="alert('Message sent!')">
         Send message →
       </button>
     </div>
@@ -1000,11 +1066,12 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="foot-logo">SO / ENG</div>
-  <div class="foot-copy">© 2026 Sahpar Ozer ME — Nashville, TN</div>
+  <div class="foot-copy">© 2026 Sahpar Ozer — Nashville, TN · Vanderbilt University</div>
   <div class="foot-links">
-    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-    <a href="#">Resume</a>
-    <a href="mailto:jordan@.com">Email</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
   </div>
 </footer>
 
