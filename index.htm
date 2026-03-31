@@ -310,179 +310,148 @@ h2 {
 }
 .profile-detail span { color: var(--white); }
 
-/* ── PROJECTS ─── */
-#projects { background: var(--lavender); }
-.projects-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
-.projects-header h2 { margin-bottom: 0; }
-.view-all {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--lilac-deep);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-bottom: 1px solid var(--lilac-deep);
-  padding-bottom: 2px;
-}
+/* ── COMBINED TIMELINE ─── */
+#timeline { background: var(--lilac-dark); }
+#timeline .section-tag { color: var(--lilac-light); }
+#timeline h2 { color: var(--white); }
 
-.projects-masonry {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-}
-.proj { background: white; overflow: hidden; transition: transform 0.25s; cursor: pointer; }
-.proj:hover { transform: translateY(-4px); }
-.proj:nth-child(1) { grid-column: 1 / 8; }
-.proj:nth-child(2) { grid-column: 8 / 13; }
-.proj:nth-child(3) { grid-column: 1 / 5; }
-.proj:nth-child(4) { grid-column: 5 / 9; }
-.proj:nth-child(5) { grid-column: 9 / 13; }
-
-.proj-thumb {
-  height: 180px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--display);
-  font-size: 5rem;
-  letter-spacing: 0.02em;
+/* centre spine */
+.tl-spine {
   position: relative;
-  overflow: hidden;
+  padding: 0 0 2rem;
 }
-.proj:nth-child(1) .proj-thumb { background: var(--lilac-dark); color: var(--lilac-light); }
-.proj:nth-child(2) .proj-thumb { background: var(--lilac); color: var(--white); }
-.proj:nth-child(3) .proj-thumb { background: var(--lilac-light); color: var(--lilac-dark); }
-.proj:nth-child(4) .proj-thumb { background: var(--ink); color: var(--lilac-light); }
-.proj:nth-child(5) .proj-thumb { background: var(--mid); color: white; }
-
-.proj-thumb-label {
+.tl-spine::before {
+  content: '';
   position: absolute;
-  bottom: 0.75rem; right: 1rem;
+  left: 50%; top: 0; bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--lilac) 0px, var(--lilac) 14px,
+    transparent 14px, transparent 24px
+  );
+}
+
+/* each row */
+.tl-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 5rem;
+  position: relative;
+}
+.tl-row:last-child { margin-bottom: 0; }
+
+/* diamond node on spine */
+.tl-node {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  position: relative; z-index: 2;
+}
+.tl-diamond {
+  width: 18px; height: 18px;
+  background: var(--lilac);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  flex-shrink: 0;
+}
+.tl-year {
   font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.7;
-}
-.proj-body { padding: 1.5rem; }
-.proj-num {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  color: #aaa;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-}
-.proj-title {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  letter-spacing: 0.03em;
-  color: var(--ink);
-  line-height: 1.1;
-  margin-bottom: 0.6rem;
-}
-.proj-desc {
-  font-size: 0.85rem;
-  color: #666;
-  line-height: 1.65;
-  margin-bottom: 1rem;
-}
-.proj-meta {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-}
-.proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.proj-tag {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid var(--lilac-light);
-  color: var(--lilac-deep);
-}
-.proj-link {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: var(--lilac-deep);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 0.6rem;
+  color: var(--lilac-light);
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
   white-space: nowrap;
 }
 
-/* ── EXPERIENCE ─── */
-#experience { background: var(--lilac-dark); }
-#experience .section-tag { color: var(--lilac-light); }
-#experience h2 { color: var(--white); }
+/* image panel */
+.tl-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+.tl-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.tl-row:hover .tl-img img { transform: scale(1.04); }
 
-.exp-timeline {
-  position: relative;
-  padding-left: 2rem;
+/* image placeholder inside tl-img */
+.tl-img .img-placeholder {
+  width: 100%; height: 100%;
+  min-height: 260px;
 }
-.exp-timeline::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 2px;
-  background: repeating-linear-gradient(
-    to bottom, var(--lilac-light) 0px, var(--lilac-light) 12px, transparent 12px, transparent 20px
-  );
+
+/* text panel */
+.tl-text {
+  padding: 2rem 2.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(176,132,204,0.15);
+  height: 100%;
+  display: flex; flex-direction: column; justify-content: center;
+  transition: background 0.25s;
 }
-.exp-entry {
-  position: relative;
-  padding: 0 0 3.5rem 3rem;
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 3rem;
-}
-.exp-entry:last-child { padding-bottom: 0; }
-.exp-entry::before {
-  content: '';
-  position: absolute; left: -7px; top: 6px;
-  width: 16px; height: 16px;
-  background: var(--lilac);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-.exp-when {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--lilac-light);
-  letter-spacing: 0.06em;
-  padding-top: 0.15rem;
-}
-.exp-company-name {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--lilac-light);
-  margin-top: 0.35rem;
-  letter-spacing: 0.04em;
-}
-.exp-role-title {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  color: var(--white);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.75rem;
-}
-.exp-bullets { list-style: none; }
-.exp-bullets li {
-  font-size: 0.9rem;
-  color: #c9a8e0;
-  line-height: 1.65;
-  padding-left: 1.2rem;
-  position: relative;
-  margin-bottom: 0.4rem;
-}
-.exp-bullets li::before {
-  content: '▸';
-  position: absolute; left: 0;
-  color: var(--lilac-light);
-  font-size: 0.75rem;
-}
-.exp-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
-.exp-badge {
+.tl-row:hover .tl-text { background: rgba(255,255,255,0.08); }
+
+/* even rows: image right, text left */
+.tl-row.even .tl-img  { order: 3; }
+.tl-row.even .tl-node { order: 2; }
+.tl-row.even .tl-text { order: 1; }
+
+/* odd rows: image left, text right (default) */
+.tl-row.odd .tl-img  { order: 1; }
+.tl-row.odd .tl-node { order: 2; }
+.tl-row.odd .tl-text { order: 3; }
+
+.tl-type {
   font-family: var(--mono);
   font-size: 0.65rem;
-  padding: 0.2rem 0.6rem;
-  background: rgba(255,255,255,0.07);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--lilac-light);
-  border: 1px solid rgba(176,132,204,0.3);
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.tl-type-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.type-project .tl-type-dot { background: var(--lilac-light); }
+.type-experience .tl-type-dot { background: #e8d5f5; }
+
+.tl-org {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--lilac);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+.tl-title {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  margin-bottom: 0.85rem;
+}
+.tl-desc {
+  font-size: 0.88rem;
+  color: #c9a8e0;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+.tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tl-tag {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid rgba(176,132,204,0.35);
+  color: var(--lilac-light);
   letter-spacing: 0.06em;
 }
 
@@ -673,9 +642,15 @@ footer {
   .hero-bottom { flex-direction: column; gap: 0.5rem; padding: 1rem 1.5rem; }
   section { padding: 4rem 1.5rem; }
   .about-layout { grid-template-columns: 1fr; }
-  .projects-masonry { grid-template-columns: 1fr; }
-  .proj { grid-column: 1 / -1 !important; }
-  .exp-entry { grid-template-columns: 1fr; gap: 0.5rem; }
+  .tl-spine::before { left: 20px; }
+  .tl-row { grid-template-columns: 1fr; gap: 0; }
+  .tl-row.odd .tl-img,
+  .tl-row.even .tl-img  { order: 1; }
+  .tl-row.odd .tl-node,
+  .tl-row.even .tl-node { order: 2; display: none; }
+  .tl-row.odd .tl-text,
+  .tl-row.even .tl-text { order: 3; }
+  .tl-img { aspect-ratio: 16/9; }
   .contact-layout { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
@@ -688,8 +663,7 @@ footer {
   <a href="#hero" class="nav-logo">SO / ENG</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
+    <li><a href="#timeline">Work & Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -771,10 +745,7 @@ footer {
     </div>
     <div class="profile-card">
       <div class="profile-avatar">
-        <div class="img-placeholder" style="width:100%;height:100%;min-height:260px;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span>Your Photo Here</span>
-        </div>
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;">
       </div>
       <div class="profile-name">SAHPAR OZER</div>
       <div class="profile-title">BE Mechanical Engineering & Economics</div>
@@ -789,260 +760,188 @@ footer {
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-tag">02 — Projects</div>
-  <div class="projects-header">
-    <h2>SELECTED<br>WORK</h2>
-    <a href="#" class="view-all">Full portfolio ↗</a>
-  </div>
-  <div class="projects-masonry">
+<!-- COMBINED WORK & PROJECTS TIMELINE -->
+<section id="timeline">
+  <div class="section-tag">02 — Work & Projects</div>
+  <h2>THE FULL<br>JOURNEY</h2>
 
-    <div class="proj">
-      <div class="proj-thumb" style="padding:0;">
-        <div class="img-placeholder" style="height:180px;width:100%;background:var(--lilac-dark);color:var(--lilac-light);">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Nanoscience / 2024–Present</span>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-num">Project 01</div>
-        <div class="proj-title">Graphene Device Development at VINSE</div>
-        <p class="proj-desc">
-          Developed reusable graphene devices through CVD growth recipes and simple circuit designs
-          at the Vanderbilt Institute of Nanoscale Science and Engineering, enhancing accessibility
-          for students and researchers.
-        </p>
-        <div class="proj-meta">
-          <div class="proj-tags">
-            <span class="proj-tag">CVD Growth</span>
-            <span class="proj-tag">Graphene</span>
-            <span class="proj-tag">Nanofabrication</span>
-          </div>
-          <a href="#" class="proj-link">View ↗</a>
-        </div>
-      </div>
-    </div>
+  <div class="tl-spine">
 
-    <div class="proj">
-      <div class="proj-thumb" style="padding:0;">
-        <div class="img-placeholder" style="height:180px;width:100%;background:var(--lilac);color:var(--white);">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Astrophysics / 2022–2024</span>
+    <!-- 1: Amazon — odd (image left) -->
+    <div class="tl-row odd type-experience">
+      <div class="tl-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#2a0a3c,#4a1a6c);color:var(--lilac-light);min-height:260px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span>Add Amazon photo</span>
         </div>
       </div>
-      <div class="proj-body">
-        <div class="proj-num">Project 02</div>
-        <div class="proj-title">Ionized Gas Kinematics — M33 & Andromeda</div>
-        <p class="proj-desc">
-          Created 250 BPT diagrams using Python and Jupyter Notebooks to analyze star-forming
-          regions in M33 and Andromeda Galaxies at UC Santa Cruz.
-        </p>
-        <div class="proj-meta">
-          <div class="proj-tags">
-            <span class="proj-tag">Python</span>
-            <span class="proj-tag">Astrophysics</span>
-          </div>
-          <a href="#" class="proj-link">View ↗</a>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2024</div>
+      </div>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Experience</div>
+        <div class="tl-org">Amazon · Nashville, TN</div>
+        <div class="tl-title">INTERN</div>
+        <p class="tl-desc">Developed communication plans for Reduction in Force and RTO initiatives. Collected and analyzed data from 500 workers, collaborating across 5 teams to align strategies with organizational needs.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Data Analysis</span>
+          <span class="tl-tag">Communications</span>
+          <span class="tl-tag">Strategy</span>
+          <span class="tl-tag">Aug–Dec 2024</span>
         </div>
       </div>
     </div>
 
-    <div class="proj">
-      <div class="proj-thumb" style="padding:0;">
-        <div class="img-placeholder" style="height:180px;width:100%;background:var(--lilac-light);color:var(--lilac-dark);">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Bioengineering / 2024–Present</span>
+    <!-- 2: VINSE — even (image right) -->
+    <div class="tl-row even type-experience">
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Experience</div>
+        <div class="tl-org">Vanderbilt Inst. of Nanoscale Science & Engineering</div>
+        <div class="tl-title">TECH CREW</div>
+        <p class="tl-desc">Acquired certification in nanoscale engineering processes. Supported 20 researchers with equipment setup and calibration. Developed reusable graphene devices through CVD growth recipes and circuit designs.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">CVD Growth</span>
+          <span class="tl-tag">Graphene</span>
+          <span class="tl-tag">Nanofabrication</span>
+          <span class="tl-tag">Dec 2024–Present</span>
         </div>
       </div>
-      <div class="proj-body">
-        <div class="proj-num">Project 03</div>
-        <div class="proj-title">Microfabrication for Engineered Tissues</div>
-        <p class="proj-desc">
-          Investigating advanced microfabrication techniques and mechanical stimulation to guide
-          vascularization in engineered tissues at Bellan Lab for Advanced Materials.
-        </p>
-        <div class="proj-meta">
-          <div class="proj-tags">
-            <span class="proj-tag">Microfab</span>
-            <span class="proj-tag">Tissue Eng.</span>
-          </div>
-          <a href="#" class="proj-link">View ↗</a>
-        </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2024</div>
       </div>
-    </div>
-
-    <div class="proj">
-     <div class="proj-thumb" style="padding:0;">
-        <img src="wind tunnel.jpg" style="width:100%;height:180px;object-fit:cover;object-position:center 30%;display:block;">
-      </div>
-      <div class="proj-body">
-        <div class="proj-num">Project 04</div>
-        <div class="proj-title">Aerospace Mesh Optimization — ITU</div>
-        <p class="proj-desc">
-          Gained experience in 4 mesh generation algorithms and optimization using Halton sequences
-          at ITU Aerospace Optimization Lab, improving computational efficiency and accuracy.
-        </p>
-        <div class="proj-meta">
-          <div class="proj-tags">
-            <span class="proj-tag">Python</span>
-            <span class="proj-tag">CAD/CAE</span>
-          </div>
-          <a href="#" class="proj-link">View ↗</a>
+      <div class="tl-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#3d1f5c,#7c4fa0);color:var(--lilac-light);min-height:260px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          <span>Add lab photo</span>
         </div>
       </div>
     </div>
 
-    <div class="proj">
-      <div class="proj-thumb" style="padding:0;">
-        <div class="img-placeholder" style="height:180px;width:100%;background:var(--mid);color:white;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Motorsports / 2024–Present</span>
+    <!-- 3: Bellan Lab — odd (image left) -->
+    <div class="tl-row odd type-experience">
+      <div class="tl-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#1a0a2e,#3d1f5c);color:var(--lilac-light);min-height:260px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          <span>Add lab photo</span>
         </div>
       </div>
-      <div class="proj-body">
-        <div class="proj-num">Project 05</div>
-        <div class="proj-title">Vanderbilt Motorsports Race Car Design</div>
-        <p class="proj-desc">
-          Contributing to design, fabrication, and optimization of race cars using CAD, applying
-          F1 engineering principles to improve performance, safety, and efficiency.
-        </p>
-        <div class="proj-meta">
-          <div class="proj-tags">
-            <span class="proj-tag">CAD</span>
-            <span class="proj-tag">Fabrication</span>
-          </div>
-          <a href="#" class="proj-link">View ↗</a>
-        </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2024</div>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-tag">03 — Experience</div>
-  <h2>WHERE I'VE<br>BUILT THINGS</h2>
-
-  <div class="exp-timeline">
-
-    <div class="exp-entry">
-      <div>
-        <div class="exp-when">Aug 2024 — Dec 2024</div>
-        <div class="exp-company-name">Amazon</div>
-      </div>
-      <div>
-        <div class="exp-role-title">INTERN</div>
-        <ul class="exp-bullets">
-          <li>Developed internal and external communication plans for Reduction in Force and RTO, guided by experienced Amazon employees.</li>
-          <li>Collected and analyzed data from 500 Amazon workers to effectively align strategies with organizational needs and industry best practices.</li>
-          <li>Gained insights into Amazon's culture and core values by collaborating with 5 different teams and departments.</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="exp-badge">Data Analysis</span>
-          <span class="exp-badge">Communications</span>
-          <span class="exp-badge">Strategy</span>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">Bellan Lab for Advanced Materials · Vanderbilt</div>
+        <div class="tl-title">RESEARCH ASSISTANT</div>
+        <p class="tl-desc">Investigating advanced microfabrication techniques to enhance engineered tissues. Utilizing mechanical stimulation to guide vascularization in controlled lab environments with strict sterile protocols.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Microfabrication</span>
+          <span class="tl-tag">Tissue Engineering</span>
+          <span class="tl-tag">Sterile Lab</span>
+          <span class="tl-tag">Sep 2024–Present</span>
         </div>
       </div>
     </div>
 
-    <div class="exp-entry">
-      <div>
-        <div class="exp-when">Dec 2024 — Present</div>
-        <div class="exp-company-name">Vanderbilt Inst. of Nanoscale Science & Eng.</div>
+    <!-- 4: George Mason / NASA — even (image right) -->
+    <div class="tl-row even type-experience">
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">George Mason University · NASA Partnership</div>
+        <div class="tl-title">RESEARCH INTERN — EXOPLANETS</div>
+        <p class="tl-desc">Worked in Prof. Plavchan's Astrophysics group studying exoplanetary systems and habitability. Invited to participate in a NASA-designated summer program, gaining hands-on space science experience.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Exoplanets</span>
+          <span class="tl-tag">NASA</span>
+          <span class="tl-tag">Astrobiology</span>
+          <span class="tl-tag">Jun 2023–Sep 2024</span>
+        </div>
       </div>
-      <div>
-        <div class="exp-role-title">TECH CREW</div>
-        <ul class="exp-bullets">
-          <li>Acquired training and certification in key nanoscale engineering processes, building expertise in advanced techniques and cutting-edge methodologies.</li>
-          <li>Supported 20 researchers by assisting with equipment setup, calibration, and troubleshooting.</li>
-          <li>Developed reusable Graphene devices through CVD growth recipes and simple circuit designs.</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="exp-badge">CVD Growth</span>
-          <span class="exp-badge">Graphene</span>
-          <span class="exp-badge">Nanofabrication</span>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2023</div>
+      </div>
+      <div class="tl-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#0a0a1e,#1a1a4c);color:var(--lilac-light);min-height:260px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          <span>Add research photo</span>
         </div>
       </div>
     </div>
 
-    <div class="exp-entry">
-      <div>
-        <div class="exp-when">Sep 2024 — Present</div>
-        <div class="exp-company-name">Bellan Lab for Advanced Materials</div>
+    <!-- 5: UC Santa Cruz — odd (image left) -->
+    <div class="tl-row odd type-project">
+      <div class="tl-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#0d0d2b,#1a1a5c);color:var(--lilac-light);min-height:260px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Add galaxy photo</span>
+        </div>
       </div>
-      <div>
-        <div class="exp-role-title">RESEARCH ASSISTANT</div>
-        <ul class="exp-bullets">
-          <li>Investigating advanced microfabrication techniques to enhance engineered tissues using lab equipment in controlled environments.</li>
-          <li>Utilizing mechanical stimulation to guide vascularization, calibrating specialized instruments for precise results.</li>
-          <li>Aiming to improve tissue organization through innovative approaches with strict adherence to sterile protocols.</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="exp-badge">Microfabrication</span>
-          <span class="exp-badge">Tissue Engineering</span>
-          <span class="exp-badge">Sterile Lab</span>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2022</div>
+      </div>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">University of California, Santa Cruz</div>
+        <div class="tl-title">IONIZED GAS KINEMATICS — M33 & ANDROMEDA</div>
+        <p class="tl-desc">Created 250 BPT diagrams using Python to analyze star-forming regions in M33 and Andromeda Galaxies. Studied Broad Emission-Lined Luminous Sources (BELLS), contributing insights into galactic formation.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Python</span>
+          <span class="tl-tag">BPT Diagrams</span>
+          <span class="tl-tag">Astrophysics</span>
+          <span class="tl-tag">May 2022–Sep 2024</span>
         </div>
       </div>
     </div>
 
-    <div class="exp-entry">
-      <div>
-        <div class="exp-when">May 2022 — Aug 2022</div>
-        <div class="exp-company-name">ITU Aerospace Optimization Lab</div>
-      </div>
-      <div>
-        <div class="exp-role-title">RESEARCH INTERN</div>
-        <ul class="exp-bullets">
-          <li>Gained experience in 4 different mesh generation algorithms and optimization using Halton sequences.</li>
-          <li>Worked with Python and Jupyter Notebooks for data analysis and simulations to solve complex aerospace problems.</li>
-          <li>Familiar with CAD/CAE software for geometry modeling and integration.</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="exp-badge">Python</span>
-          <span class="exp-badge">Jupyter</span>
-          <span class="exp-badge">CAD/CAE</span>
+    <!-- 6: ITU Aerospace — even (image right) — uses wind_tunnel.jpg -->
+    <div class="tl-row even type-project">
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">ITU Aerospace Optimization Lab · Istanbul</div>
+        <div class="tl-title">AEROSPACE MESH OPTIMIZATION</div>
+        <p class="tl-desc">Gained experience in 4 mesh generation algorithms and optimization using Halton sequences, improving computational efficiency. Applied Python and CAD/CAE tools for geometry modeling and aerodynamic simulations.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Python</span>
+          <span class="tl-tag">Mesh Algorithms</span>
+          <span class="tl-tag">CAD/CAE</span>
+          <span class="tl-tag">May–Aug 2022</span>
         </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2022</div>
+      </div>
+      <div class="tl-img">
+        <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
     </div>
 
-    <div class="exp-entry">
-      <div>
-        <div class="exp-when">May 2022 — Sep 2024</div>
-        <div class="exp-company-name">University of California, Santa Cruz</div>
-      </div>
-      <div>
-        <div class="exp-role-title">RESEARCH INTERN</div>
-        <ul class="exp-bullets">
-          <li>Worked on Ionized Gas Kinematics and Physical Conditions in M33 and Andromeda Galaxies, analyzing complex dynamics.</li>
-          <li>Created 250 BPT diagrams using Python and Jupyter Notebooks to analyze star-forming regions.</li>
-          <li>Studied Broad Emission-Lined Luminous Sources (BELLS), contributing insights to galactic formation and evolution.</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="exp-badge">Python</span>
-          <span class="exp-badge">Astrophysics</span>
-          <span class="exp-badge">Data Viz</span>
+    <!-- 7: NASA SpaceApps — odd (image left) -->
+    <div class="tl-row odd type-project">
+      <div class="tl-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#1a0a2e,#4a1060);color:var(--lilac-light);min-height:260px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Add hackathon photo</span>
         </div>
       </div>
-    </div>
-
-    <div class="exp-entry">
-      <div>
-        <div class="exp-when">Jun 2023 — Sep 2024</div>
-        <div class="exp-company-name">George Mason University</div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2021</div>
       </div>
-      <div>
-        <div class="exp-role-title">RESEARCH INTERN</div>
-        <ul class="exp-bullets">
-          <li>Worked in Professor Plavchan's Astrophysics research group, focusing on exoplanet research and advanced analysis techniques.</li>
-          <li>Contributed to projects studying exoplanetary systems and their potential for habitability and astrobiological research.</li>
-          <li>Invited to participate in Professor Plavchan's designated summer program with NASA.</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="exp-badge">Exoplanets</span>
-          <span class="exp-badge">NASA</span>
-          <span class="exp-badge">Astrobiology</span>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Project · Award</div>
+        <div class="tl-org">NASA SpaceApps Hackathon · Global Finalist</div>
+        <div class="tl-title">3D-PRINTED APOLLO TOOLKIT — 1ST IN TURKEY</div>
+        <p class="tl-desc">Led a team of 7 designing a low-cost, 3D-printable toolkit inspired by the Apollo mission, optimized for reduced weight and full digital fabrication. Achieved 1st place in Turkey and became a global finalist.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">3D Printing</span>
+          <span class="tl-tag">Team Lead</span>
+          <span class="tl-tag">🏆 1st in Turkey</span>
+          <span class="tl-tag">2021–2023</span>
         </div>
       </div>
     </div>
@@ -1052,7 +951,7 @@ footer {
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-tag">04 — Contact</div>
+  <div class="section-tag">03 — Contact</div>
   <div class="contact-layout">
     <div class="contact-panel-left">
       <h2>LET'S<br>CONNECT.</h2>
