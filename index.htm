@@ -1,809 +1,1046 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deniz Gürkan — Nanotechnology Engineer & Researcher</title>
-  <style>
-    /* ── VARIABLES ─── */
-    :root {
-      --ink: #1a1a2e;
-      --lavender: #e8dff5;
-      --lilac: #b084cc;
-      --lilac-light: #d4b5e8;
-      --lilac-dark: #8b5fbf;
-      --lilac-deep: #6a4a8c;
-      --mist: #f7f4fb;
-      --white: #ffffff;
-      --mono: 'Courier New', monospace;
-      --display: 'Georgia', serif;
-      --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahpar Ozer — Mechanical Engineer & Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── RESET ─── */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--body);
-      color: var(--ink);
-      background: var(--white);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+:root {
+  --white:   #ffffff;
+  --lilac:   #b084cc;
+  --lilac-light: #d4b0e8;
+  --lilac-pale:  #f0e4f8;
+  --lilac-deep:  #7c4fa0;
+  --lilac-dark:  #3d1f5c;
+  --lavender:#e8d5f5;
+  --ink:     #1a0a2e;
+  --mist:    #f7f0fc;
+  --mid:     #9b6bbf;
+  --display: 'Bebas Neue', sans-serif;
+  --body:    'Space Grotesk', sans-serif;
+  --mono:    'IBM Plex Mono', monospace;
+}
 
-    /* ── TYPOGRAPHY ─── */
-    h1, h2 { 
-      font-family: var(--display); 
-      font-weight: 700; 
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    h1 { font-size: clamp(2.5rem, 6vw, 5rem); }
-    h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-    p { max-width: 65ch; }
-    a { text-decoration: none; color: inherit; }
+html { scroll-behavior: smooth; }
+body { background: var(--mist); color: var(--ink); font-family: var(--body); overflow-x: hidden; }
 
-    /* ── NAVIGATION ─── */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: var(--white);
-      border-bottom: 2px solid var(--lilac);
-      z-index: 100;
-      padding: 1rem 0;
-    }
-    nav .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-family: var(--mono);
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      color: var(--lilac-deep);
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      color: var(--ink);
-      transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--lilac); }
+/* ── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  height: 64px;
+  background: var(--lilac-dark);
+  border-bottom: 3px solid var(--lilac);
+}
+.nav-logo {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  color: var(--lilac-light);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-links { display: flex; gap: 0; list-style: none; height: 100%; }
+.nav-links li { height: 100%; }
+.nav-links a {
+  display: flex; align-items: center;
+  height: 100%;
+  padding: 0 1.4rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #c9a8e0;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-left: 1px solid rgba(176,132,204,0.2);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-links a:hover { background: var(--lilac); color: white; }
 
-    /* ── SECTIONS ─── */
-    section {
-      min-height: 100vh;
-      padding: 8rem 2rem 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .section-tag {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      color: var(--lilac-deep);
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-    }
+/* ── HERO ─── */
+#hero {
+  min-height: 100vh;
+  padding-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  grid-template-rows: 1fr auto;
+}
+.hero-left {
+  background: var(--lilac-dark);
+  padding: 5rem 4rem 4rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(176,132,204,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176,132,204,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--lilac-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 2rem; height: 2px;
+  background: var(--lilac);
+}
+h1 {
+  font-family: var(--display);
+  font-size: clamp(5rem, 12vw, 11rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+h1 span { color: var(--lilac-light); display: block; }
+.hero-desc {
+  font-size: 1rem;
+  color: #c9a8e0;
+  max-width: 440px;
+  line-height: 1.7;
+  position: relative;
+  margin-bottom: 3rem;
+}
+.hero-ctas { display: flex; gap: 1rem; position: relative; }
 
-    /* ── HERO ─── */
-    #hero {
-      background: linear-gradient(135deg, var(--mist) 0%, var(--lavender) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, var(--lilac-light) 0%, transparent 70%);
-      border-radius: 50%;
-      top: -300px;
-      right: -200px;
-      opacity: 0.3;
-      animation: float 20s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(30px, -30px) rotate(120deg); }
-      66% { transform: translate(-20px, 20px) rotate(240deg); }
-    }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-title { margin-bottom: 1rem; color: var(--ink); }
-    .hero-subtitle {
-      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-      color: var(--lilac-deep);
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-    .hero-text {
-      font-size: 1.1rem;
-      color: var(--ink);
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--lilac);
-      color: var(--white);
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: 2px solid var(--lilac-deep);
-      clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-    .cta-button:hover {
-      background: var(--lilac-deep);
-      transform: translateY(-2px);
-      box-shadow: 4px 4px 0 var(--lilac-light);
-    }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.btn-primary { background: var(--lilac); color: white; }
+.btn-primary:hover { background: var(--mid); transform: translateY(-2px); }
+.btn-secondary { background: var(--lilac-light); color: var(--ink); }
+.btn-secondary:hover { background: #e8c8f8; transform: translateY(-2px); }
 
-    /* ── ABOUT ─── */
-    #about { background: var(--white); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3rem;
-    }
-    .about-text p { margin-bottom: 1.5rem; }
-    .about-highlight {
-      background: var(--lavender);
-      padding: 2rem;
-      border-left: 4px solid var(--lilac);
-    }
-    .about-highlight h3 {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      color: var(--lilac-deep);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-    .about-highlight ul {
-      list-style: none;
-      font-size: 0.95rem;
-    }
-    .about-highlight li {
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    .about-highlight li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: var(--lilac);
-      font-weight: bold;
-    }
+.hero-right {
+  background: var(--lilac);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-right::before {
+  content: 'ENGI\ANEER';
+  white-space: pre;
+  font-family: var(--display);
+  font-size: 9rem;
+  line-height: 0.85;
+  color: rgba(255,255,255,0.08);
+  position: absolute;
+  top: 2rem; left: -1rem;
+  letter-spacing: 0.02em;
+}
+.stat-stack { display: flex; flex-direction: column; gap: 1px; }
+.stat-block {
+  background: rgba(255,255,255,0.12);
+  padding: 1.25rem 1.5rem;
+  display: flex; align-items: baseline; gap: 1rem;
+  transition: background 0.2s;
+}
+.stat-block:hover { background: rgba(255,255,255,0.22); }
+.stat-num {
+  font-family: var(--display);
+  font-size: 3.5rem;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.stat-txt {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+.hero-bottom {
+  grid-column: 1 / -1;
+  background: var(--lilac-light);
+  padding: 1rem 4rem;
+  display: flex; gap: 4rem; align-items: center;
+  overflow: hidden;
+}
+.ticker-item {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--lilac-dark);
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 1rem;
+}
+.ticker-item::before { content: '◆'; font-size: 0.5rem; color: var(--lilac-deep); }
 
-    /* ── SKILLS ─── */
-    #skills { 
-      background: linear-gradient(135deg, var(--mist) 0%, var(--lavender) 100%); 
-      position: relative;
-    }
-    #skills::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(176,132,204,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(176,132,204,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
+/* ── SECTION SHARED ─── */
+section { padding: 6rem 4rem; }
+.section-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--lilac-deep);
+}
+.section-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  max-width: 120px;
+  background: currentColor;
+  opacity: 0.3;
+}
+h2 {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 0.03em;
+  line-height: 0.92;
+  margin-bottom: 3.5rem;
+}
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      position: relative;
-      margin-top: 3rem;
-    }
+/* ── ABOUT ─── */
+#about { background: var(--mist); }
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 5rem;
+  align-items: start;
+}
+.about-copy p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a3060;
+  margin-bottom: 1.25rem;
+}
+.about-copy p strong { color: var(--ink); }
+.discipline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--lilac);
+  border: 1px solid var(--lilac);
+  margin-top: 2rem;
+}
+.discipline-cell {
+  background: var(--white);
+  padding: 1.1rem 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: #6b4a88;
+  transition: background 0.2s, color 0.2s;
+}
+.discipline-cell:hover { background: var(--lilac-dark); color: var(--lilac-light); }
+.discipline-cell strong { display: block; color: var(--ink); font-weight: 500; font-family: var(--body); font-size: 0.9rem; margin-bottom: 0.2rem; }
+.discipline-cell:hover strong { color: var(--lilac-light); }
 
-    .skill-category {
-      background: var(--white);
-      border: 2px solid var(--lilac);
-      padding: 0;
-      transition: transform 0.3s, box-shadow 0.3s;
-      clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-    }
-    .skill-category:hover {
-      transform: translateY(-4px);
-      box-shadow: 8px 8px 0 var(--lilac-light);
-    }
+.profile-card {
+  background: var(--lilac-dark);
+  padding: 2rem;
+  position: relative;
+}
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: -6px; right: -6px;
+  width: 100%; height: 100%;
+  border: 2px solid var(--lilac);
+  z-index: -1;
+}
+.profile-avatar {
+  width: 100%; aspect-ratio: 1;
+  background: var(--lilac-deep);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-initials {
+  font-family: var(--display);
+  font-size: 6rem;
+  color: var(--lilac-light);
+  opacity: 0.4;
+}
+.profile-name {
+  font-family: var(--display);
+  font-size: 2rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+.profile-title {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--lilac-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+}
+.profile-detail {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: #c9a8e0;
+  line-height: 2;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+.profile-detail span { color: var(--white); }
 
-    .skill-cat-header {
-      background: var(--lilac-dark);
-      padding: 1.5rem 1.75rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      border-bottom: 2px solid var(--lilac);
-    }
-    .skill-cat-icon {
-      font-size: 1.8rem;
-      filter: grayscale(1) brightness(2);
-      opacity: 0.9;
-    }
-    .skill-cat-header h3 {
-      font-family: var(--display);
-      font-size: 1.4rem;
-      color: var(--white);
-      letter-spacing: 0.04em;
-      line-height: 1.1;
-      margin: 0;
-    }
+/* ── COMBINED TIMELINE ─── */
+#timeline { background: var(--lilac-dark); }
+#timeline .section-tag { color: var(--lilac-light); }
+#timeline h2 { color: var(--white); }
 
-    .skill-items {
-      padding: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      min-height: 120px;
-    }
+.tl-spine {
+  position: relative;
+  padding: 0 0 2rem;
+}
+.tl-spine::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--lilac) 0px, var(--lilac) 14px,
+    transparent 14px, transparent 24px
+  );
+}
 
-    .skill-chip {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.04em;
-      background: var(--mist);
-      border: 1px solid var(--lilac);
-      color: var(--lilac-deep);
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .skill-chip:hover {
-      background: var(--lilac);
-      color: var(--white);
-      transform: translateY(-2px);
-      cursor: default;
-    }
-    .skill-chip-highlight {
-      background: var(--lilac-light);
-      border-color: var(--lilac-deep);
-      color: var(--ink);
-      font-weight: 500;
-    }
-    .skill-chip-highlight:hover {
-      background: var(--lilac-deep);
-      color: var(--white);
-    }
+.tl-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 5rem;
+  position: relative;
+}
+.tl-row:last-child { margin-bottom: 0; }
 
-    /* ── TIMELINE ─── */
-    #timeline { background: var(--white); }
-    .timeline-container {
-      margin-top: 3rem;
-      position: relative;
-    }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      margin-bottom: 4rem;
-      position: relative;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 200px;
-      top: 0;
-      bottom: -4rem;
-      width: 2px;
-      background: var(--lilac-light);
-    }
-    .timeline-item:last-child::before { display: none; }
-    
-    .timeline-date {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      color: var(--lilac-deep);
-      text-align: right;
-      padding-top: 0.5rem;
-    }
-    .timeline-content {
-      position: relative;
-      padding-left: 2rem;
-    }
-    .timeline-content::before {
-      content: '';
-      position: absolute;
-      left: -3.5rem;
-      top: 0.7rem;
-      width: 12px;
-      height: 12px;
-      background: var(--lilac);
-      border: 3px solid var(--white);
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px var(--lilac);
-    }
-    .timeline-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--ink);
-    }
-    .timeline-subtitle {
-      font-family: var(--mono);
-      font-size: 0.9rem;
-      color: var(--lilac-deep);
-      margin-bottom: 1rem;
-    }
-    .timeline-description {
-      color: var(--ink);
-      opacity: 0.9;
-      margin-bottom: 1rem;
-    }
-    .timeline-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      padding: 0.3rem 0.8rem;
-      background: var(--lavender);
-      color: var(--lilac-deep);
-      border: 1px solid var(--lilac);
-      letter-spacing: 0.05em;
-    }
+.tl-node {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  position: relative; z-index: 2;
+}
+.tl-diamond {
+  width: 18px; height: 18px;
+  background: var(--lilac);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  flex-shrink: 0;
+}
+.tl-year {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--lilac-light);
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+}
 
-    /* ── CONTACT ─── */
-    #contact {
-      background: linear-gradient(135deg, var(--lavender) 0%, var(--lilac-light) 100%);
-      text-align: center;
-    }
-    .contact-content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .contact-text {
-      font-size: 1.2rem;
-      margin: 2rem auto 3rem;
-      opacity: 0.9;
-    }
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      background: var(--white);
-      color: var(--lilac-deep);
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      border: 2px solid var(--lilac);
-      transition: all 0.3s;
-    }
-    .contact-link:hover {
-      background: var(--lilac);
-      color: var(--white);
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(176, 132, 204, 0.3);
-    }
+.tl-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+.tl-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.tl-row:hover .tl-img img { transform: scale(1.04); }
 
-    /* ── FOOTER ─── */
-    footer {
-      background: var(--ink);
-      color: var(--mist);
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .foot-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .foot-links a {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--lilac-light);
-      transition: color 0.3s;
-    }
-    .foot-links a:hover { color: var(--white); }
-    footer p {
-      font-size: 0.85rem;
-      opacity: 0.7;
-      margin: 0 auto;
-    }
+.tl-img .img-placeholder {
+  width: 100%; height: 100%;
+  min-height: 260px;
+}
 
-    /* ── RESPONSIVE ─── */
-    @media (max-width: 960px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
-      .timeline-date {
-        text-align: left;
-        padding-top: 0;
-      }
-      .timeline-item::before { display: none; }
-      .timeline-content { padding-left: 0; }
-      .timeline-content::before { display: none; }
-      .nav-links { gap: 1rem; }
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+.tl-text {
+  padding: 2rem 2.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(176,132,204,0.15);
+  height: 100%;
+  display: flex; flex-direction: column; justify-content: center;
+  transition: background 0.25s;
+}
+.tl-row:hover .tl-text { background: rgba(255,255,255,0.08); }
 
-    @media (max-width: 640px) {
-      section { padding: 6rem 1.5rem 3rem; }
-      .nav-links { 
-        font-size: 0.75rem;
-        gap: 0.8rem;
-      }
-    }
-  </style>
+.tl-row.even .tl-img  { order: 3; }
+.tl-row.even .tl-node { order: 2; }
+.tl-row.even .tl-text { order: 1; }
+
+.tl-row.odd .tl-img  { order: 1; }
+.tl-row.odd .tl-node { order: 2; }
+.tl-row.odd .tl-text { order: 3; }
+
+.tl-type {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lilac-light);
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.tl-type-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.type-project .tl-type-dot { background: var(--lilac-light); }
+.type-experience .tl-type-dot { background: #e8d5f5; }
+
+.tl-org {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--lilac);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+.tl-title {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  margin-bottom: 0.85rem;
+}
+.tl-desc {
+  font-size: 0.88rem;
+  color: #c9a8e0;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+.tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tl-tag {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid rgba(176,132,204,0.35);
+  color: var(--lilac-light);
+  letter-spacing: 0.06em;
+}
+
+/* ── CONTACT ─── */
+#contact { background: var(--lilac-dark); padding: 6rem 4rem; }
+#contact .section-tag { color: var(--lilac-light); }
+
+.contact-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.contact-top h2 { color: var(--white); margin-bottom: 0; }
+.contact-links-inline {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.contact-pill {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(176,132,204,0.25);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--lilac-light);
+  text-decoration: none;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s;
+}
+.contact-pill:hover { background: rgba(176,132,204,0.2); border-color: var(--lilac); color: var(--white); }
+.contact-pill-icon { color: var(--lilac); }
+
+/* SMALLER CLOCKS SIDE BY SIDE */
+.clocks-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: stretch;
+  overflow-x: auto;
+  background: none;
+  border: none;
+}
+
+.world-clock {
+  background: var(--lilac-dark);
+  padding: 0.75rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-width: 90px;
+  flex: 1;
+  border: 1px solid rgba(176,132,204,0.15);
+}
+.world-clock:hover { background: rgba(176,132,204,0.1); }
+
+/* Smaller analog clock */
+.analog-wrap { 
+  position: relative; 
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0; 
+}
+.analog-wrap svg { width: 100%; height: 100%; }
+
+/* Smaller text */
+.wc-digital {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.wc-ampm {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  color: var(--lilac);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+.wc-city {
+  font-family: var(--display);
+  font-size: 0.85rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+}
+.wc-sub {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  color: var(--lilac-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.1rem;
+}
+.wc-note {
+  color: var(--lilac);
+  font-size: 0.45rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── FOOTER ─── */
+footer {
+  background: var(--lilac-dark);
+  border-top: 3px solid var(--lilac);
+  padding: 1.75rem 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.foot-logo {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  color: var(--lilac-light);
+  letter-spacing: 0.05em;
+}
+.foot-copy {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: #9b6bbf;
+  letter-spacing: 0.06em;
+}
+.foot-links { display: flex; gap: 2rem; }
+.foot-links a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: #9b6bbf;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.foot-links a:hover { color: var(--lilac-light); }
+
+/* ── IMAGE PLACEHOLDERS ─── */
+.img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.img-placeholder:hover { opacity: 0.82; }
+.img-placeholder svg { opacity: 0.55; }
+.img-placeholder span { opacity: 0.72; }
+.profile-avatar .img-placeholder {
+  background: linear-gradient(135deg, var(--lilac-deep) 0%, var(--lilac-dark) 100%);
+  border: 2px dashed rgba(212,176,232,0.5);
+  color: var(--lilac-light);
+}
+.proj-thumb .img-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1.5px dashed currentColor;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+@media (max-width: 960px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-bottom { flex-direction: column; gap: 0.5rem; padding: 1rem 1.5rem; }
+  section { padding: 4rem 1.5rem; }
+  .about-layout { grid-template-columns: 1fr; }
+  .tl-spine::before { left: 20px; }
+  .tl-row { grid-template-columns: 1fr; gap: 0; }
+  .tl-row.odd .tl-img,
+  .tl-row.even .tl-img  { order: 1; }
+  .tl-row.odd .tl-node,
+  .tl-row.even .tl-node { order: 2; display: none; }
+  .tl-row.odd .tl-text,
+  .tl-row.even .tl-text { order: 3; }
+  .tl-img { aspect-ratio: 16/9; }
+  .clocks-grid { flex-wrap: wrap; }
+  .contact-top { flex-direction: column; align-items: flex-start; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="container">
-      <div class="logo">DG</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#timeline">Work & Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">SO / ENG</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#timeline">Work & Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="section-tag">00 — Introduction</div>
-        <h1 class="hero-title">Deniz Gürkan</h1>
-        <p class="hero-subtitle">Nanotechnology Engineer · Researcher · Problem Solver</p>
-        <p class="hero-text">
-          Bridging quantum mechanics and practical innovation through nanofabrication, 
-          materials science, and interdisciplinary research.
-        </p>
-        <a href="#contact" class="cta-button">Get in Touch</a>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Mechanical Engineer & Researcher · Vanderbilt University</p>
+    <h1>SAHPAR<span>OZER.</span></h1>
+    <p class="hero-desc">
+      Mechanical Engineering & Economics student at Vanderbilt University with hands-on research in
+      nanoscience, astrophysics, and microfabrication. Based in Nashville, TN.
+      Cornelius Vanderbilt Merit Scholar.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">See projects</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-stack">
+      <div class="stat-block">
+        <div class="stat-num">3.2</div>
+        <div class="stat-txt">GPA at<br>Vanderbilt</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">5+</div>
+        <div class="stat-txt">Research<br>positions</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">250</div>
+        <div class="stat-txt">BPT diagrams<br>created</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">1st</div>
+        <div class="stat-txt">NASA SpaceApps<br>Turkey winner</div>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="hero-bottom">
+    <div class="ticker-item">Nanoscale Engineering</div>
+    <div class="ticker-item">Astrophysics Research</div>
+    <div class="ticker-item">Microfabrication</div>
+    <div class="ticker-item">Python · C++ · CAD</div>
+    <div class="ticker-item">Motorsports Design</div>
+    <div class="ticker-item">NASA SpaceApps Global Finalist</div>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="section-tag">01 — About Me</div>
-      <h2>WHO I AM</h2>
-      
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I'm a nanotechnology engineering student at Sabanci University with a passion 
-            for pushing the boundaries of materials science and quantum computing. My work 
-            spans from fabricating graphene-based devices to analyzing exoplanet atmospheres 
-            and developing quantum algorithms.
-          </p>
-          <p>
-            With hands-on experience in cleanroom fabrication, semiconductor processing, 
-            and computational research, I thrive at the intersection of theory and application. 
-            Whether it's optimizing CVD parameters or coding quantum circuits, I approach 
-            each challenge with curiosity and rigor.
-          </p>
-          <p>
-            Beyond the lab, you'll find me exploring astrophysics data, contributing to 
-            open-source projects, or strategizing over a game of Go.
-          </p>
-        </div>
-        
-        <div class="about-highlight">
-          <h3>Quick Facts</h3>
-          <ul>
-            <li>📍 Based in Istanbul, Turkey</li>
-            <li>🎓 Nanotechnology Engineering, Sabanci University</li>
-            <li>🔬 Focus: Nanofabrication & Quantum Computing</li>
-            <li>🌌 Interests: Astrophysics, Materials Science</li>
-            <li>🗣️ Languages: English, Turkish, German</li>
-            <li>☕ Former Barista · Current Coffee Enthusiast</li>
-          </ul>
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">01 — About me</div>
+  <div class="about-layout">
+    <div class="about-copy">
+      <h2>BUILT ON<br>CURIOSITY</h2>
+      <p>
+        I'm a <strong>Mechanical Engineering & Economics</strong> student at Vanderbilt University,
+        pursuing a Minor in Nanoscience and Nanotechnology. A Cornelius Vanderbilt Merit Scholar,
+        I bring both analytical rigor and creative problem-solving to every project.
+      </p>
+      <p>
+        My research spans from <strong>graphene CVD growth</strong> and tissue microfabrication
+        at Vanderbilt's nanoscale labs, to <strong>ionized gas kinematics</strong> in distant galaxies
+        at UC Santa Cruz, to exoplanet discovery at George Mason University.
+      </p>
+      <p>
+        I believe engineering and science are most powerful when they intersect disciplines —
+        whether that's applying mesh optimization to aerospace, or combining economics with
+        mechanical design to solve real-world challenges.
+      </p>
+      <div class="discipline-grid">
+        <div class="discipline-cell"><strong>Nanoscale Engineering</strong>CVD growth, graphene devices</div>
+        <div class="discipline-cell"><strong>Astrophysics</strong>BPT diagrams, exoplanet research</div>
+        <div class="discipline-cell"><strong>Microfabrication</strong>Tissue engineering, vascularization</div>
+        <div class="discipline-cell"><strong>Aerospace Optimization</strong>Mesh algorithms, Halton sequences</div>
+        <div class="discipline-cell"><strong>CAD / CAE Design</strong>Motorsports & race car components</div>
+        <div class="discipline-cell"><strong>Data Science</strong>Python, Jupyter, C++, Dart Flutter</div>
       </div>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-tag">01.5 — Skills & Expertise</div>
-      <h2>TECHNICAL<br>TOOLKIT</h2>
-      
-      <div class="skills-grid">
-        
-        <!-- Nanofabrication & Materials -->
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">⚛</span>
-            <h3>Nanofabrication & Materials</h3>
-          </div>
-          <div class="skill-items">
-            <span class="skill-chip">Chemical Vapor Deposition (CVD)</span>
-            <span class="skill-chip">Plasma-Enhanced CVD (PECVD)</span>
-            <span class="skill-chip">Electron Beam Evaporation</span>
-            <span class="skill-chip">Reactive Ion Etching</span>
-            <span class="skill-chip">Photolithography</span>
-            <span class="skill-chip">Photoplotting</span>
-            <span class="skill-chip">Profilometry</span>
-            <span class="skill-chip">Thin Films</span>
-            <span class="skill-chip">Graphene</span>
-            <span class="skill-chip">Organic Solar Cells</span>
-            <span class="skill-chip">Semiconductor Engineering</span>
-            <span class="skill-chip">Microfluidics</span>
-          </div>
-        </div>
-
-        <!-- Programming & Data Science -->
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">{ }</span>
-            <h3>Programming & Data Science</h3>
-          </div>
-          <div class="skill-items">
-            <span class="skill-chip skill-chip-highlight">Python</span>
-            <span class="skill-chip">C++</span>
-            <span class="skill-chip">Go</span>
-            <span class="skill-chip">SQL</span>
-            <span class="skill-chip">HTML/CSS</span>
-            <span class="skill-chip">Dart Flutter</span>
-            <span class="skill-chip">Data Analysis</span>
-            <span class="skill-chip">Jupyter Notebooks</span>
-            <span class="skill-chip">Qiskit</span>
-            <span class="skill-chip">Replit</span>
-          </div>
-        </div>
-
-        <!-- Research & Analysis -->
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">🔬</span>
-            <h3>Research & Scientific Analysis</h3>
-          </div>
-          <div class="skill-items">
-            <span class="skill-chip">Astrophysics</span>
-            <span class="skill-chip">Astronomy</span>
-            <span class="skill-chip">Quantum Computing</span>
-            <span class="skill-chip">Research Skills</span>
-            <span class="skill-chip">BPT Diagram Analysis</span>
-            <span class="skill-chip">Exoplanet Discovery</span>
-            <span class="skill-chip">Statistical Analysis</span>
-          </div>
-        </div>
-
-        <!-- Engineering & CAD -->
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">⚙</span>
-            <h3>Engineering & Fabrication</h3>
-          </div>
-          <div class="skill-items">
-            <span class="skill-chip">CAD/CAE Design</span>
-            <span class="skill-chip">Lathe Operation</span>
-            <span class="skill-chip">Milling</span>
-            <span class="skill-chip">Mesh Optimization</span>
-            <span class="skill-chip">3D Printing</span>
-            <span class="skill-chip">Motorsports Design</span>
-            <span class="skill-chip">Tissue Engineering</span>
-          </div>
-        </div>
-
-        <!-- Soft Skills & Languages -->
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">◆</span>
-            <h3>Interpersonal & Languages</h3>
-          </div>
-          <div class="skill-items">
-            <span class="skill-chip">Teamwork & Collaboration</span>
-            <span class="skill-chip">English (Native)</span>
-            <span class="skill-chip">Turkish (Native)</span>
-            <span class="skill-chip">German</span>
-            <span class="skill-chip">Translation</span>
-            <span class="skill-chip">Communication Strategy</span>
-            <span class="skill-chip">Algebra & Mathematics</span>
-          </div>
-        </div>
-
-        <!-- Miscellaneous -->
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">✦</span>
-            <h3>Other Expertise</h3>
-          </div>
-          <div class="skill-items">
-            <span class="skill-chip">Coffee (Barista)</span>
-            <span class="skill-chip">Go / Baduk / Weiqi</span>
-            <span class="skill-chip">NASA SpaceApps Winner</span>
-            <span class="skill-chip">Delta Sigma Pi</span>
-          </div>
-        </div>
-
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <img src="linkedin.jpg" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;">
+      </div>
+      <div class="profile-name">SAHPAR OZER</div>
+      <div class="profile-title">BE Mechanical Engineering & Economics</div>
+      <div class="profile-detail">
+        Based in <span>Nashville, TN</span><br>
+        University <span>Vanderbilt, Class of 2028</span><br>
+        Languages <span>English · Turkish · German</span><br>
+        Clubs <span>Delta Sigma Pi · Motorsports</span><br>
+        Open to <span>Research & internship roles</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TIMELINE -->
-  <section id="timeline">
-    <div class="container">
-      <div class="section-tag">02 — Experience & Projects</div>
-      <h2>MY JOURNEY</h2>
-      
-      <div class="timeline-container">
-        
-        <div class="timeline-item">
-          <div class="timeline-date">2024 — PRESENT</div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">Undergraduate Research Assistant</h3>
-            <p class="timeline-subtitle">Sabanci University SUNUM · Istanbul, Turkey</p>
-            <p class="timeline-description">
-              Fabricating graphene-based devices in a cleanroom environment using CVD, 
-              electron beam evaporation, and reactive ion etching. Optimizing nanofabrication 
-              parameters and characterizing materials for quantum applications.
-            </p>
-            <div class="timeline-tags">
-              <span class="tag">Graphene</span>
-              <span class="tag">CVD</span>
-              <span class="tag">Nanofabrication</span>
-              <span class="tag">Cleanroom</span>
-            </div>
-          </div>
-        </div>
+<!-- COMBINED WORK & PROJECTS TIMELINE -->
+<section id="timeline">
+  <div class="section-tag">02 — Work & Projects</div>
+  <h2>THE FULL<br>JOURNEY</h2>
 
-        <div class="timeline-item">
-          <div class="timeline-date">2024</div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">Exoplanet Atmosphere Analysis</h3>
-            <p class="timeline-subtitle">Independent Research Project</p>
-            <p class="timeline-description">
-              Analyzed spectroscopic data from JWST to characterize exoplanet atmospheres. 
-              Applied statistical methods and BPT diagrams to identify molecular compositions 
-              and predict habitability markers.
-            </p>
-            <div class="timeline-tags">
-              <span class="tag">Astrophysics</span>
-              <span class="tag">Python</span>
-              <span class="tag">Data Analysis</span>
-              <span class="tag">JWST</span>
-            </div>
-          </div>
-        </div>
+  <div class="tl-spine">
 
-        <div class="timeline-item">
-          <div class="timeline-date">2023 — 2024</div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">Quantum Algorithm Development</h3>
-            <p class="timeline-subtitle">Coursework & Personal Projects</p>
-            <p class="timeline-description">
-              Implemented quantum search and optimization algorithms using Qiskit. 
-              Explored quantum error correction and circuit design for near-term quantum devices.
-            </p>
-            <div class="timeline-tags">
-              <span class="tag">Quantum Computing</span>
-              <span class="tag">Qiskit</span>
-              <span class="tag">Python</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">2023</div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">NASA Space Apps Challenge Winner</h3>
-            <p class="timeline-subtitle">Global Competition</p>
-            <p class="timeline-description">
-              Developed an innovative solution for space exploration challenges, 
-              winning at the local level and advancing to global judging.
-            </p>
-            <div class="timeline-tags">
-              <span class="tag">Hackathon</span>
-              <span class="tag">Space Tech</span>
-              <span class="tag">Teamwork</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">2022 — 2023</div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">Tissue Engineering Research</h3>
-            <p class="timeline-subtitle">Sabanci University</p>
-            <p class="timeline-description">
-              Contributed to projects involving biomaterial scaffolds and cell culture 
-              techniques. Gained experience in microscopy and biological assays.
-            </p>
-            <div class="timeline-tags">
-              <span class="tag">Bioengineering</span>
-              <span class="tag">Materials</span>
-              <span class="tag">Research</span>
-            </div>
-          </div>
-        </div>
-
+    <div class="tl-row odd type-experience">
+      <div class="tl-img">
+        <img src="amazon.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-tag">03 — Let's Connect</div>
-      <h2>GET IN TOUCH</h2>
-      <div class="contact-content">
-        <p class="contact-text">
-          I'm always open to discussing research opportunities, collaborations, 
-          or just chatting about quantum mechanics and nanoscience.
-        </p>
-        <div class="contact-links">
-          <a href="mailto:your.email@example.com" class="contact-link">
-            <span>📧</span> Email
-          </a>
-          <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
-            <span>💼</span> LinkedIn
-          </a>
-          <a href="https://github.com/yourprofile" class="contact-link" target="_blank">
-            <span>💻</span> GitHub
-          </a>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2024</div>
+      </div>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Experience</div>
+        <div class="tl-org">Amazon · Nashville, TN</div>
+        <div class="tl-title">INTERN</div>
+        <p class="tl-desc">Developed communication plans for Reduction in Force and RTO initiatives. Collected and analyzed data from 500 workers, collaborating across 5 teams to align strategies with organizational needs.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Data Analysis</span>
+          <span class="tl-tag">Communications</span>
+          <span class="tl-tag">Strategy</span>
+          <span class="tl-tag">Aug–Dec 2024</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="foot-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#timeline">Work & Projects</a>
-        <a href="#contact">Contact</a>
+    <div class="tl-row even type-experience">
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Experience</div>
+        <div class="tl-org">Vanderbilt Inst. of Nanoscale Science & Engineering</div>
+        <div class="tl-title">TECH CREW</div>
+        <p class="tl-desc">Acquired certification in nanoscale engineering processes. Supported 20 researchers with equipment setup and calibration. Developed reusable graphene devices through CVD growth recipes and circuit designs.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">CVD Growth</span>
+          <span class="tl-tag">Graphene</span>
+          <span class="tl-tag">Nanofabrication</span>
+          <span class="tl-tag">Dec 2024–Present</span>
+        </div>
       </div>
-      <p>&copy; 2024 Deniz Gürkan. All rights reserved.</p>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2024</div>
+      </div>
+      <div class="tl-img">
+        <img src="vinse.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+      </div>
     </div>
-  </footer>
 
+    <div class="tl-row odd type-experience">
+      <div class="tl-img">
+        <img src="bio.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+      </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2024</div>
+      </div>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">Bellan Lab for Advanced Materials · Vanderbilt</div>
+        <div class="tl-title">RESEARCH ASSISTANT</div>
+        <p class="tl-desc">Investigating advanced microfabrication techniques to enhance engineered tissues. Utilizing mechanical stimulation to guide vascularization in controlled lab environments with strict sterile protocols.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Microfabrication</span>
+          <span class="tl-tag">Tissue Engineering</span>
+          <span class="tl-tag">Sterile Lab</span>
+          <span class="tl-tag">Sep 2024–Present</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-row even type-experience">
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">George Mason University · NASA Partnership</div>
+        <div class="tl-title">RESEARCH INTERN — EXOPLANETS</div>
+        <p class="tl-desc">Worked in Prof. Plavchan's Astrophysics group studying exoplanetary systems and habitability. Invited to participate in a NASA-designated summer program, gaining hands-on space science experience.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Exoplanets</span>
+          <span class="tl-tag">NASA</span>
+          <span class="tl-tag">Astrobiology</span>
+          <span class="tl-tag">Jun 2023–Sep 2024</span>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2023</div>
+      </div>
+      <div class="tl-img">
+        <img src="exo.gif" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+      </div>
+    </div>
+
+    <div class="tl-row odd type-project">
+      <div class="tl-img">
+        <img src="tri.gif" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+      </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2022</div>
+      </div>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">University of California, Santa Cruz</div>
+        <div class="tl-title">IONIZED GAS KINEMATICS — M33 & ANDROMEDA</div>
+        <p class="tl-desc">Created 250 BPT diagrams using Python to analyze star-forming regions in M33 and Andromeda Galaxies. Studied Broad Emission-Lined Luminous Sources (BELLS), contributing insights into galactic formation.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Python</span>
+          <span class="tl-tag">BPT Diagrams</span>
+          <span class="tl-tag">Astrophysics</span>
+          <span class="tl-tag">May 2022–Sep 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-row even type-project">
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
+        <div class="tl-org">ITU Aerospace Optimization Lab · Istanbul</div>
+        <div class="tl-title">AEROSPACE MESH OPTIMIZATION</div>
+        <p class="tl-desc">Gained experience in 4 mesh generation algorithms and optimization using Halton sequences, improving computational efficiency. Applied Python and CAD/CAE tools for geometry modeling and aerodynamic simulations.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Python</span>
+          <span class="tl-tag">Mesh Algorithms</span>
+          <span class="tl-tag">CAD/CAE</span>
+          <span class="tl-tag">May–Aug 2022</span>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2022</div>
+      </div>
+      <div class="tl-img">
+        <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+      </div>
+    </div>
+
+    <div class="tl-row odd type-project">
+      <div class="tl-img">
+        <img src="tool.gif" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+      </div>
+      <div class="tl-node">
+        <div class="tl-diamond"></div>
+        <div class="tl-year">2021</div>
+      </div>
+      <div class="tl-text">
+        <div class="tl-type"><span class="tl-type-dot"></span>Project · Award</div>
+        <div class="tl-org">NASA SpaceApps Hackathon · Global Finalist</div>
+        <div class="tl-title">3D-PRINTED APOLLO TOOLKIT — 1ST IN TURKEY</div>
+        <p class="tl-desc">Led a team of 7 designing a low-cost, 3D-printable toolkit inspired by the Apollo mission, optimized for reduced weight and full digital fabrication. Achieved 1st place in Turkey and became a global finalist.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">3D Printing</span>
+          <span class="tl-tag">Team Lead</span>
+          <span class="tl-tag">🏆 1st in Turkey</span>
+          <span class="tl-tag">2021–2023</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">03 — Contact</div>
+ 
+  <div class="contact-top">
+    <h2>LET'S<br>CONNECT.</h2>
+    <div class="contact-links-inline">
+      <a href="mailto:sahpar.n.ozer@vanderbilt.edu" class="contact-pill">
+        <span class="contact-pill-icon">@</span> sahpar.n.ozer@vanderbilt.edu
+      </a>
+      <a href="tel:+16155218787" class="contact-pill">
+        <span class="contact-pill-icon">↗</span> (615) 521-8787
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="contact-pill">
+        <span class="contact-pill-icon">in</span> LinkedIn
+      </a>
+      <a href="#" class="contact-pill">
+        <span class="contact-pill-icon">↓</span> Resume
+      </a>
+    </div>
+  </div>
+ 
+  <div class="clocks-grid">
+    <div class="world-clock" data-tz="Europe/Istanbul" data-city="Hatay" data-country="Turkey" data-note="hometown"></div>
+    <div class="world-clock" data-tz="Europe/Istanbul" data-city="İzmir" data-country="Turkey" data-note="second home"></div>
+    <div class="world-clock" data-tz="America/Chicago" data-city="Nashville" data-country="TN · US" data-note="current home"></div>
+    <div class="world-clock" data-tz="America/New_York" data-city="New York" data-country="NY · US" data-note="special"></div>
+    <div class="world-clock" data-tz="America/Los_Angeles" data-city="Los Angeles" data-country="CA · US" data-note="future home"></div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">SO / ENG</div>
+  <div class="foot-copy">© 2026 Sahpar Ozer — Nashville, TN · Vanderbilt University</div>
+  <div class="foot-links">
+    <a href="#about">About</a>
+    <a href="#timeline">Work & Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+ 
+<script>
+function drawClock(card) {
+  const tz = card.dataset.tz;
+  const city = card.dataset.city;
+  const country = card.dataset.country;
+  const note = card.dataset.note;
+ 
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
+  }).formatToParts(now);
+ 
+  let h = 0, m = 0, s = 0, ampm = '';
+  parts.forEach(p => {
+    if (p.type === 'hour')   h = parseInt(p.value);
+    if (p.type === 'minute') m = parseInt(p.value);
+    if (p.type === 'second') s = parseInt(p.value);
+    if (p.type === 'dayPeriod') ampm = p.value;
+  });
+ 
+  const secDeg   = s * 6;
+  const minDeg   = m * 6 + s * 0.1;
+  const hourDeg  = (h % 12) * 30 + m * 0.5;
+ 
+  const digitalH = String(h).padStart(2, '0');
+  const digitalM = String(m).padStart(2, '0');
+  const digitalS = String(s).padStart(2, '0');
+ 
+  // tick marks - smaller clock (50x50 viewBox)
+  let ticks = '';
+  for (let i = 0; i < 12; i++) {
+    const angle = i * 30;
+    const len = 3;
+    const r1 = 22;
+    const r2 = r1 - len;
+    const rad = (angle - 90) * Math.PI / 180;
+    const x1 = 25 + r1 * Math.cos(rad);
+    const y1 = 25 + r1 * Math.sin(rad);
+    const x2 = 25 + r2 * Math.cos(rad);
+    const y2 = 25 + r2 * Math.sin(rad);
+    ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"
+      stroke="rgba(212,176,232,0.6)" stroke-width="0.8"/>`;
+  }
+ 
+  function hand(deg, length, width, color, opacity = 1) {
+    const rad = (deg - 90) * Math.PI / 180;
+    const x = 25 + length * Math.cos(rad);
+    const y = 25 + length * Math.sin(rad);
+    return `<line x1="25" y1="25" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"
+      stroke="${color}" stroke-width="${width}" stroke-linecap="round" opacity="${opacity}"/>`;
+  }
+ 
+  const svg = `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="23.5" fill="none" stroke="rgba(176,132,204,0.2)" stroke-width="0.6"/>
+    <circle cx="25" cy="25" r="22" fill="rgba(61,31,92,0.6)"/>
+    ${ticks}
+    ${hand(hourDeg, 13, 1.5, '#d4b0e8')}
+    ${hand(minDeg,  17, 1.2, '#d4b0e8')}
+    ${hand(secDeg,  19, 0.7, '#b084cc', 0.9)}
+    <circle cx="25" cy="25" r="1.5" fill="#b084cc"/>
+    <circle cx="25" cy="25" r="0.7" fill="#d4b0e8"/>
+  </svg>`;
+ 
+  card.innerHTML = `
+    <div class="analog-wrap">${svg}</div>
+    <div style="text-align:center;">
+      <div class="wc-digital">${digitalH}:${digitalM}:${digitalS}</div>
+      <div class="wc-ampm">${ampm}</div>
+    </div>
+    <div class="wc-city">${city}</div>
+    <div class="wc-sub">
+      <span>${country}</span>
+      <span class="wc-note">${note}</span>
+    </div>
+  `;
+}
+ 
+function tickAll() {
+  document.querySelectorAll('.world-clock').forEach(drawClock);
+}
+ 
+tickAll();
+setInterval(tickAll, 1000);
+</script>
 </body>
 </html>
