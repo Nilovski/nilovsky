@@ -481,7 +481,7 @@ h2 {
 .contact-pill:hover { background: rgba(176,132,204,0.2); border-color: var(--lilac); color: var(--white); }
 .contact-pill-icon { color: var(--lilac); }
 
-/* Make the clocks grid horizontal */
+/* SMALLER CLOCKS SIDE BY SIDE */
 .clocks-grid {
   display: flex;
   flex-wrap: nowrap;
@@ -493,43 +493,42 @@ h2 {
   border: none;
 }
 
-/* Much smaller clock containers */
 .world-clock {
   background: var(--lilac-dark);
-  padding: 0.5rem 0.4rem;
+  padding: 0.75rem 0.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.4rem;
   transition: background 0.3s;
   position: relative;
   overflow: hidden;
-  min-width: 80px;
+  min-width: 90px;
   flex: 1;
   border: 1px solid rgba(176,132,204,0.15);
 }
 .world-clock:hover { background: rgba(176,132,204,0.1); }
 
-/* Tiny analog clock */
+/* Smaller analog clock */
 .analog-wrap { 
   position: relative; 
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0; 
 }
 .analog-wrap svg { width: 100%; height: 100%; }
 
-/* Tiny text */
+/* Smaller text */
 .wc-digital {
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: var(--white);
   letter-spacing: 0.04em;
   line-height: 1;
 }
 .wc-ampm {
   font-family: var(--mono);
-  font-size: 0.45rem;
+  font-size: 0.5rem;
   color: var(--lilac);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -538,7 +537,7 @@ h2 {
 }
 .wc-city {
   font-family: var(--display);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--white);
   letter-spacing: 0.04em;
   line-height: 1;
@@ -546,7 +545,7 @@ h2 {
 }
 .wc-sub {
   font-family: var(--mono);
-  font-size: 0.45rem;
+  font-size: 0.5rem;
   color: var(--lilac-light);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -557,7 +556,7 @@ h2 {
 }
 .wc-note {
   color: var(--lilac);
-  font-size: 0.4rem;
+  font-size: 0.45rem;
   letter-spacing: 0.06em;
 }
 
@@ -759,7 +758,6 @@ footer {
 
   <div class="tl-spine">
 
-    <!-- 1: Amazon -->
     <div class="tl-row odd type-experience">
       <div class="tl-img">
         <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
@@ -782,7 +780,6 @@ footer {
       </div>
     </div>
 
-    <!-- 2: VINSE -->
     <div class="tl-row even type-experience">
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Experience</div>
@@ -805,7 +802,6 @@ footer {
       </div>
     </div>
 
-    <!-- 3: Bellan Lab -->
     <div class="tl-row odd type-experience">
       <div class="tl-img">
         <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
@@ -828,7 +824,6 @@ footer {
       </div>
     </div>
 
-    <!-- 4: George Mason / NASA -->
     <div class="tl-row even type-experience">
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
@@ -851,7 +846,6 @@ footer {
       </div>
     </div>
 
-    <!-- 5: UC Santa Cruz -->
     <div class="tl-row odd type-project">
       <div class="tl-img">
         <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
@@ -874,7 +868,6 @@ footer {
       </div>
     </div>
 
-    <!-- 6: ITU Aerospace -->
     <div class="tl-row even type-project">
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
@@ -897,7 +890,6 @@ footer {
       </div>
     </div>
 
-    <!-- 7: NASA SpaceApps -->
     <div class="tl-row odd type-project">
       <div class="tl-img">
         <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
@@ -928,4 +920,91 @@ footer {
   <div class="section-tag">03 — Contact</div>
 
   <div class="contact-top">
-    <h2>L
+    <h2>LET'S<br>CONNECT.</h2>
+    <div class="contact-links-inline">
+      <a href="mailto:sahpar.n.ozer@vanderbilt.edu" class="contact-pill">
+        <span class="contact-pill-icon">@</span> sahpar.n.ozer@vanderbilt.edu
+      </a>
+      <a href="tel:+16155218787" class="contact-pill">
+        <span class="contact-pill-icon">↗</span> (615) 521-8787
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="contact-pill">
+        <span class="contact-pill-icon">in</span> LinkedIn
+      </a>
+      <a href="#" class="contact-pill">
+        <span class="contact-pill-icon">↓</span> Resume
+      </a>
+    </div>
+  </div>
+
+  <div class="clocks-grid">
+    <div class="world-clock" data-tz="Europe/Istanbul" data-city="Hatay" data-country="Turkey" data-note="hometown"></div>
+    <div class="world-clock" data-tz="Europe/Istanbul" data-city="İzmir" data-country="Turkey" data-note="high school"></div>
+    <div class="world-clock" data-tz="America/Chicago" data-city="Nashville" data-country="TN · US" data-note="current home"></div>
+    <div class="world-clock" data-tz="America/New_York" data-city="New York" data-country="NY · US" data-note="the city"></div>
+    <div class="world-clock" data-tz="America/Los_Angeles" data-city="Los Angeles" data-country="CA · US" data-note="west coast"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">SO / ENG</div>
+  <div class="foot-copy">© 2026 Sahpar Ozer — Nashville, TN · Vanderbilt University</div>
+  <div class="foot-links">
+    <a href="#about">About</a>
+    <a href="#timeline">Work & Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+function drawClock(card) {
+  const tz = card.dataset.tz;
+  const city = card.dataset.city;
+  const country = card.dataset.country;
+  const note = card.dataset.note;
+
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
+  }).formatToParts(now);
+
+  let h = 0, m = 0, s = 0, ampm = '';
+  parts.forEach(p => {
+    if (p.type === 'hour')   h = parseInt(p.value);
+    if (p.type === 'minute') m = parseInt(p.value);
+    if (p.type === 'second') s = parseInt(p.value);
+    if (p.type === 'dayPeriod') ampm = p.value;
+  });
+
+  const secDeg   = s * 6;
+  const minDeg   = m * 6 + s * 0.1;
+  const hourDeg  = (h % 12) * 30 + m * 0.5;
+
+  const digitalH = String(h).padStart(2, '0');
+  const digitalM = String(m).padStart(2, '0');
+  const digitalS = String(s).padStart(2, '0');
+
+  // tick marks for smaller clock
+  let ticks = '';
+  for (let i = 0; i < 12; i++) {
+    const angle = i * 30;
+    const len = 3;
+    const r1 = 22;
+    const r2 = r1 - len;
+    const rad = (angle - 90) * Math.PI / 180;
+    const x1 = 25 + r1 * Math.cos(rad);
+    const y1 = 25 + r1 * Math.sin(rad);
+    const x2 = 25 + r2 * Math.cos(rad);
+    const y2 = 25 + r2 * Math.sin(rad);
+    ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"
+      stroke="rgba(212,176,232,0.6)" stroke-width="0.8"/>`;
+  }
+
+  function hand(deg, length, width, color, opacity = 1) {
+    const rad = (deg - 90) * Math.PI / 180;
+    const x = 25 + length * Math.cos(rad);
+    const y = 25 + length * Math.sin(rad);
+    return `<line x1="25" y1="25" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"
+      stroke="${color}" stroke-width="${
