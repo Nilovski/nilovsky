@@ -935,41 +935,31 @@ footer {
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-tag">03 — Contact</div>
-  <div class="contact-layout">
-    <div class="contact-panel-left">
-      <h2>LET'S<br>CONNECT.</h2>
-      <p>
-        Open to research collaborations, internships, and project-based engagements.
-        I respond to all enquiries within one business day.
-      </p>
-      <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#314250594150431f5f1f5e4b54437147505f55544353585d451f545544" class="contact-link-row">
-          <div class="contact-link-icon">@</div>
-          <div class="contact-link-text"><span class="__cf_email__" data-cfemail="384b595048594a16561657425d4a784e59565c5d4a5a51544c165d5c4d">[email&#160;protected]</span></div>
-        </a>
-        <a href="tel:+16155218787" class="contact-link-row">
-          <div class="contact-link-icon">tel</div>
-          <div class="contact-link-text">+1 (615) 521-8787</div>
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="contact-link-row">
-          <div class="contact-link-icon">in</div>
-          <div class="contact-link-text">linkedin.com/in/sahpar-ozer</div>
-        </a>
-        <a href="#" class="contact-link-row">
-          <div class="contact-link-icon">cv</div>
-          <div class="contact-link-text">Download resume / CV</div>
-        </a>
-      </div>
-    </div>
-    <div class="contact-panel-right" style="background:transparent;padding:0;display:flex;flex-direction:column;gap:0.75rem;">
-      <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lilac-light);margin-bottom:0.5rem;">Places close to my heart</div>
  
-      <div class="clock-card" data-tz="Europe/Istanbul" data-city="Hatay" data-country="Turkey" data-note="hometown"></div>
-      <div class="clock-card" data-tz="Europe/Istanbul" data-city="İzmir" data-country="Turkey" data-note="high school"></div>
-      <div class="clock-card" data-tz="America/Chicago" data-city="Nashville" data-country="TN, US" data-note="current home"></div>
-      <div class="clock-card" data-tz="America/New_York" data-city="New York City" data-country="NY, US" data-note="the city"></div>
-      <div class="clock-card" data-tz="America/Los_Angeles" data-city="Los Angeles" data-country="CA, US" data-note="west coast"></div>
+  <div class="contact-top">
+    <h2>LET'S<br>CONNECT.</h2>
+    <div class="contact-links-inline">
+      <a href="mailto:sahpar.n.ozer@vanderbilt.edu" class="contact-pill">
+        <span class="contact-pill-icon">@</span> sahpar.n.ozer@vanderbilt.edu
+      </a>
+      <a href="tel:+16155218787" class="contact-pill">
+        <span class="contact-pill-icon">↗</span> (615) 521-8787
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="contact-pill">
+        <span class="contact-pill-icon">in</span> LinkedIn
+      </a>
+      <a href="#" class="contact-pill">
+        <span class="contact-pill-icon">↓</span> Resume
+      </a>
     </div>
+  </div>
+ 
+  <div class="clocks-grid">
+    <div class="world-clock" data-tz="Europe/Istanbul" data-city="Hatay" data-country="Turkey" data-note="hometown"></div>
+    <div class="world-clock" data-tz="Europe/Istanbul" data-city="İzmir" data-country="Turkey" data-note="high school"></div>
+    <div class="world-clock" data-tz="America/Chicago" data-city="Nashville" data-country="TN · US" data-note="current home"></div>
+    <div class="world-clock" data-tz="America/New_York" data-city="New York" data-country="NY · US" data-note="the city"></div>
+    <div class="world-clock" data-tz="America/Los_Angeles" data-city="Los Angeles" data-country="CA · US" data-note="west coast"></div>
   </div>
 </section>
  
@@ -985,44 +975,91 @@ footer {
 </footer>
  
 <script>
-function renderClocks() {
-  document.querySelectorAll('.clock-card').forEach(card => {
-    const tz = card.dataset.tz;
-    const city = card.dataset.city;
-    const country = card.dataset.country;
-    const note = card.dataset.note;
+function drawClock(card) {
+  const tz = card.dataset.tz;
+  const city = card.dataset.city;
+  const country = card.dataset.country;
+  const note = card.dataset.note;
  
-    const now = new Date();
-    const timeStr = now.toLocaleTimeString('en-US', {
-      timeZone: tz,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true
-    });
-    const parts = timeStr.split(' ');
-    const timePart = parts[0];
-    const ampm = parts[1] || '';
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
+  }).formatToParts(now);
  
-    card.innerHTML = `
-      <div class="clock-left">
-        <div class="clock-city">${city}</div>
-        <div class="clock-meta">
-          ${country}
-          <span class="dot"></span>
-          ${note}
-        </div>
-      </div>
-      <div class="clock-right">
-        <div class="clock-time">${timePart}</div>
-        <div class="clock-ampm">${ampm}</div>
-      </div>
-    `;
+  let h = 0, m = 0, s = 0, ampm = '';
+  parts.forEach(p => {
+    if (p.type === 'hour')   h = parseInt(p.value);
+    if (p.type === 'minute') m = parseInt(p.value);
+    if (p.type === 'second') s = parseInt(p.value);
+    if (p.type === 'dayPeriod') ampm = p.value;
   });
+ 
+  const secDeg   = s * 6;
+  const minDeg   = m * 6 + s * 0.1;
+  const hourDeg  = (h % 12) * 30 + m * 0.5;
+ 
+  const digitalH = String(h).padStart(2, '0');
+  const digitalM = String(m).padStart(2, '0');
+  const digitalS = String(s).padStart(2, '0');
+ 
+  // tick marks
+  let ticks = '';
+  for (let i = 0; i < 60; i++) {
+    const angle = i * 6;
+    const isMajor = i % 5 === 0;
+    const len = isMajor ? 8 : 4;
+    const r1 = 48;
+    const r2 = r1 - len;
+    const rad = (angle - 90) * Math.PI / 180;
+    const x1 = 55 + r1 * Math.cos(rad);
+    const y1 = 55 + r1 * Math.sin(rad);
+    const x2 = 55 + r2 * Math.cos(rad);
+    const y2 = 55 + r2 * Math.sin(rad);
+    ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"
+      stroke="${isMajor ? 'rgba(212,176,232,0.7)' : 'rgba(176,132,204,0.3)'}"
+      stroke-width="${isMajor ? 1.5 : 0.8}"/>`;
+  }
+ 
+  function hand(deg, length, width, color, opacity = 1) {
+    const rad = (deg - 90) * Math.PI / 180;
+    const x = 55 + length * Math.cos(rad);
+    const y = 55 + length * Math.sin(rad);
+    return `<line x1="55" y1="55" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"
+      stroke="${color}" stroke-width="${width}" stroke-linecap="round" opacity="${opacity}"/>`;
+  }
+ 
+  const svg = `<svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="55" cy="55" r="52" fill="none" stroke="rgba(176,132,204,0.2)" stroke-width="1"/>
+    <circle cx="55" cy="55" r="49" fill="rgba(61,31,92,0.6)"/>
+    ${ticks}
+    ${hand(hourDeg, 28, 3, '#d4b0e8')}
+    ${hand(minDeg,  38, 2, '#d4b0e8')}
+    ${hand(secDeg,  43, 1, '#b084cc', 0.9)}
+    <circle cx="55" cy="55" r="3.5" fill="#b084cc"/>
+    <circle cx="55" cy="55" r="1.5" fill="#d4b0e8"/>
+  </svg>`;
+ 
+  card.innerHTML = `
+    <div class="analog-wrap">${svg}</div>
+    <div style="text-align:center;">
+      <div class="wc-digital">${digitalH}:${digitalM}:${digitalS}</div>
+      <div class="wc-ampm">${ampm}</div>
+    </div>
+    <div class="wc-city">${city}</div>
+    <div class="wc-sub">
+      <span>${country}</span>
+      <span class="wc-note">${note}</span>
+    </div>
+  `;
 }
  
-renderClocks();
-setInterval(renderClocks, 1000);
+function tickAll() {
+  document.querySelectorAll('.world-clock').forEach(drawClock);
+}
+ 
+tickAll();
+setInterval(tickAll, 1000);
 </script>
 </body>
 </html>
