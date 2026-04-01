@@ -1003,41 +1003,41 @@ function drawClock(card) {
   const digitalM = String(m).padStart(2, '0');
   const digitalS = String(s).padStart(2, '0');
  
-  // tick marks (scaled for 80x80 viewBox)
+  // tick marks (scaled for 60x60 viewBox)
   let ticks = '';
   for (let i = 0; i < 60; i++) {
     const angle = i * 6;
     const isMajor = i % 5 === 0;
-    const len = isMajor ? 6 : 3;
-    const r1 = 17.5;
+    const len = isMajor ? 4.5 : 2.5;
+    const r1 = 13;
     const r2 = r1 - len;
     const rad = (angle - 90) * Math.PI / 180;
-    const x1 = 40 + r1 * Math.cos(rad);
-    const y1 = 40 + r1 * Math.sin(rad);
-    const x2 = 40 + r2 * Math.cos(rad);
-    const y2 = 40 + r2 * Math.sin(rad);
+    const x1 = 30 + r1 * Math.cos(rad);
+    const y1 = 30 + r1 * Math.sin(rad);
+    const x2 = 30 + r2 * Math.cos(rad);
+    const y2 = 30 + r2 * Math.sin(rad);
     ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"
       stroke="${isMajor ? 'rgba(212,176,232,0.7)' : 'rgba(176,132,204,0.3)'}"
-      stroke-width="${isMajor ? 1.2 : 0.6}"/>`;
+      stroke-width="${isMajor ? 1 : 0.5}"/>`;
   }
  
   function hand(deg, length, width, color, opacity = 1) {
     const rad = (deg - 90) * Math.PI / 180;
-    const x = 40 + length * Math.cos(rad);
-    const y = 40 + length * Math.sin(rad);
-    return `<line x1="40" y1="40" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"
+    const x = 30 + length * Math.cos(rad);
+    const y = 30 + length * Math.sin(rad);
+    return `<line x1="30" y1="30" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"
       stroke="${color}" stroke-width="${width}" stroke-linecap="round" opacity="${opacity}"/>`;
   }
  
-  const svg = `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="40" cy="40" r="38" fill="none" stroke="rgba(176,132,204,0.2)" stroke-width="1"/>
-    <circle cx="40" cy="40" r="36" fill="rgba(61,31,92,0.6)"/>
+  const svg = `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="28" fill="none" stroke="rgba(176,132,204,0.2)" stroke-width="0.8"/>
+    <circle cx="30" cy="30" r="27" fill="rgba(61,31,92,0.6)"/>
     ${ticks}
-    ${hand(hourDeg, 20, 2.5, '#d4b0e8')}
-    ${hand(minDeg,  28, 1.8, '#d4b0e8')}
-    ${hand(secDeg,  31, 0.9, '#b084cc', 0.9)}
-    <circle cx="40" cy="40" r="2.5" fill="#b084cc"/>
-    <circle cx="40" cy="40" r="1" fill="#d4b0e8"/>
+    ${hand(hourDeg, 15, 2, '#d4b0e8')}
+    ${hand(minDeg,  21, 1.5, '#d4b0e8')}
+    ${hand(secDeg,  23, 0.8, '#b084cc', 0.9)}
+    <circle cx="30" cy="30" r="2" fill="#b084cc"/>
+    <circle cx="30" cy="30" r="0.8" fill="#d4b0e8"/>
   </svg>`;
  
   card.innerHTML = `
