@@ -931,7 +931,7 @@ footer {
   </div>
 </section>
 
-
+ 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-tag">03 — Contact</div>
@@ -961,31 +961,14 @@ footer {
         </a>
       </div>
     </div>
-    <div class="contact-panel-right">
-      <h3>SEND A MESSAGE</h3>
-    <div class="profile">
-        <img src="linkedin.jpg" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;">
-      </div>
-        <div class="field-group">
-          <label class="field-label">Last name</label>
-          <input type="text" class="field-input" placeholder="Smith">
-        </div>
-      </div>
-      <div class="field-group">
-        <label class="field-label">Email</label>
-        <input type="email" class="field-input" placeholder="jane@company.com">
-      </div>
-      <div class="field-group">
-        <label class="field-label">Inquiry type</label>
-        <input type="text" class="field-input" placeholder="e.g. Research collaboration, internship...">
-      </div>
-      <div class="field-group">
-        <label class="field-label">Message</label>
-        <textarea class="field-textarea" placeholder="Tell me about your project or opportunity..."></textarea>
-      </div>
-      <button class="submit-btn" onclick="alert('Message sent!')">
-        Send message →
-      </button>
+    <div class="contact-panel-right" style="background:transparent;padding:0;display:flex;flex-direction:column;gap:0.75rem;">
+      <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lilac-light);margin-bottom:0.5rem;">Places close to my heart</div>
+ 
+      <div class="clock-card" data-tz="Europe/Istanbul" data-city="Hatay" data-country="Turkey" data-note="hometown"></div>
+      <div class="clock-card" data-tz="Europe/Istanbul" data-city="İzmir" data-country="Turkey" data-note="high school"></div>
+      <div class="clock-card" data-tz="America/Chicago" data-city="Nashville" data-country="TN, US" data-note="current home"></div>
+      <div class="clock-card" data-tz="America/New_York" data-city="New York City" data-country="NY, US" data-note="the city"></div>
+      <div class="clock-card" data-tz="America/Los_Angeles" data-city="Los Angeles" data-country="CA, US" data-note="west coast"></div>
     </div>
   </div>
 </section>
@@ -995,4 +978,51 @@ footer {
   <div class="foot-logo">SO / ENG</div>
   <div class="foot-copy">© 2026 Sahpar Ozer — Nashville, TN · Vanderbilt University</div>
   <div class="foot-links">
-    <a href="#about">About<
+    <a href="#about">About<</a>
+    <a href="#timeline">Work & Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+ 
+<script>
+function renderClocks() {
+  document.querySelectorAll('.clock-card').forEach(card => {
+    const tz = card.dataset.tz;
+    const city = card.dataset.city;
+    const country = card.dataset.country;
+    const note = card.dataset.note;
+ 
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('en-US', {
+      timeZone: tz,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+    const parts = timeStr.split(' ');
+    const timePart = parts[0];
+    const ampm = parts[1] || '';
+ 
+    card.innerHTML = `
+      <div class="clock-left">
+        <div class="clock-city">${city}</div>
+        <div class="clock-meta">
+          ${country}
+          <span class="dot"></span>
+          ${note}
+        </div>
+      </div>
+      <div class="clock-right">
+        <div class="clock-time">${timePart}</div>
+        <div class="clock-ampm">${ampm}</div>
+      </div>
+    `;
+  });
+}
+ 
+renderClocks();
+setInterval(renderClocks, 1000);
+</script>
+</body>
+</html>
