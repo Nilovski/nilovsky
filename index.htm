@@ -279,12 +279,6 @@ h2 {
   position: relative;
   overflow: hidden;
 }
-.avatar-initials {
-  font-family: var(--display);
-  font-size: 6rem;
-  color: var(--lilac-light);
-  opacity: 0.4;
-}
 .profile-name {
   font-family: var(--display);
   font-size: 2rem;
@@ -309,6 +303,139 @@ h2 {
   padding-top: 1rem;
 }
 .profile-detail span { color: var(--white); }
+
+/* ── SKILLS ─── */
+#skills { background: var(--lavender); }
+#skills .section-tag { color: var(--lilac-deep); }
+
+.skills-intro {
+  max-width: 600px;
+  font-size: 1rem;
+  color: #4a3060;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--lilac-light);
+  border: 1px solid var(--lilac-light);
+}
+
+.skill-group {
+  background: var(--white);
+  padding: 2rem;
+}
+
+.skill-group-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lilac-deep);
+  margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.skill-group-label::before {
+  content: '';
+  display: inline-block;
+  width: 10px; height: 2px;
+  background: var(--lilac);
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-chip {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  padding: 0.3rem 0.75rem;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  transition: all 0.18s;
+  cursor: default;
+  white-space: nowrap;
+}
+
+/* category colours */
+.chip-nano {
+  background: var(--lilac-pale);
+  color: var(--lilac-deep);
+  border: 1px solid var(--lilac-light);
+}
+.chip-nano:hover { background: var(--lilac-dark); color: var(--white); border-color: var(--lilac-dark); }
+
+.chip-code {
+  background: #e8f0fe;
+  color: #3a4a8a;
+  border: 1px solid #b8c8f8;
+}
+.chip-code:hover { background: #3a4a8a; color: var(--white); border-color: #3a4a8a; }
+
+.chip-research {
+  background: #fce8f8;
+  color: #7a2a7a;
+  border: 1px solid #e8b0e8;
+}
+.chip-research:hover { background: #7a2a7a; color: var(--white); border-color: #7a2a7a; }
+
+.chip-fab {
+  background: #e8f8ee;
+  color: #2a6a3a;
+  border: 1px solid #a8e0b8;
+}
+.chip-fab:hover { background: #2a6a3a; color: var(--white); border-color: #2a6a3a; }
+
+.chip-tools {
+  background: #fff4e0;
+  color: #7a5010;
+  border: 1px solid #f0d098;
+}
+.chip-tools:hover { background: #7a5010; color: var(--white); border-color: #7a5010; }
+
+.chip-other {
+  background: #f0f0f0;
+  color: #444;
+  border: 1px solid #ccc;
+}
+.chip-other:hover { background: #444; color: var(--white); border-color: #444; }
+
+/* scrolling marquee row at bottom of skills */
+.skills-marquee-wrap {
+  margin-top: 2rem;
+  overflow: hidden;
+  border-top: 1px solid var(--lilac-light);
+  border-bottom: 1px solid var(--lilac-light);
+  padding: 0.75rem 0;
+  background: var(--white);
+}
+.skills-marquee {
+  display: flex;
+  gap: 2rem;
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.skills-marquee:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-item {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lilac-deep);
+  display: flex; align-items: center; gap: 0.75rem;
+  flex-shrink: 0;
+}
+.marquee-item::after { content: '◆'; font-size: 0.4rem; color: var(--lilac-light); }
 
 /* ── COMBINED TIMELINE ─── */
 #timeline { background: var(--lilac-dark); }
@@ -376,11 +503,6 @@ h2 {
 }
 .tl-row:hover .tl-img img { transform: scale(1.04); }
 
-.tl-img .img-placeholder {
-  width: 100%; height: 100%;
-  min-height: 260px;
-}
-
 .tl-text {
   padding: 2rem 2.5rem;
   background: rgba(255,255,255,0.04);
@@ -394,10 +516,9 @@ h2 {
 .tl-row.even .tl-img  { order: 3; }
 .tl-row.even .tl-node { order: 2; }
 .tl-row.even .tl-text { order: 1; }
-
-.tl-row.odd .tl-img  { order: 1; }
-.tl-row.odd .tl-node { order: 2; }
-.tl-row.odd .tl-text { order: 3; }
+.tl-row.odd .tl-img   { order: 1; }
+.tl-row.odd .tl-node  { order: 2; }
+.tl-row.odd .tl-text  { order: 3; }
 
 .tl-type {
   font-family: var(--mono);
@@ -460,11 +581,7 @@ h2 {
   gap: 1.5rem;
 }
 .contact-top h2 { color: var(--white); margin-bottom: 0; }
-.contact-links-inline {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
+.contact-links-inline { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .contact-pill {
   display: flex; align-items: center; gap: 0.5rem;
   padding: 0.6rem 1.1rem;
@@ -481,7 +598,6 @@ h2 {
 .contact-pill:hover { background: rgba(176,132,204,0.2); border-color: var(--lilac); color: var(--white); }
 .contact-pill-icon { color: var(--lilac); }
 
-/* SMALLER CLOCKS SIDE BY SIDE */
 .clocks-grid {
   display: flex;
   flex-wrap: nowrap;
@@ -489,8 +605,6 @@ h2 {
   justify-content: center;
   align-items: stretch;
   overflow-x: auto;
-  background: none;
-  border: none;
 }
 
 .world-clock {
@@ -509,16 +623,9 @@ h2 {
 }
 .world-clock:hover { background: rgba(176,132,204,0.1); }
 
-/* Smaller analog clock */
-.analog-wrap { 
-  position: relative; 
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0; 
-}
+.analog-wrap { position: relative; width: 50px; height: 50px; flex-shrink: 0; }
 .analog-wrap svg { width: 100%; height: 100%; }
 
-/* Smaller text */
 .wc-digital {
   font-family: var(--mono);
   font-size: 0.7rem;
@@ -550,15 +657,9 @@ h2 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.1rem;
+  display: flex; flex-direction: column; gap: 0.1rem;
 }
-.wc-note {
-  color: var(--lilac);
-  font-size: 0.45rem;
-  letter-spacing: 0.06em;
-}
+.wc-note { color: var(--lilac); font-size: 0.45rem; letter-spacing: 0.06em; }
 
 /* ── FOOTER ─── */
 footer {
@@ -567,18 +668,8 @@ footer {
   padding: 1.75rem 4rem;
   display: flex; align-items: center; justify-content: space-between;
 }
-.foot-logo {
-  font-family: var(--display);
-  font-size: 1.4rem;
-  color: var(--lilac-light);
-  letter-spacing: 0.05em;
-}
-.foot-copy {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: #9b6bbf;
-  letter-spacing: 0.06em;
-}
+.foot-logo { font-family: var(--display); font-size: 1.4rem; color: var(--lilac-light); letter-spacing: 0.05em; }
+.foot-copy { font-family: var(--mono); font-size: 0.68rem; color: #9b6bbf; letter-spacing: 0.06em; }
 .foot-links { display: flex; gap: 2rem; }
 .foot-links a {
   font-family: var(--mono);
@@ -593,35 +684,16 @@ footer {
 
 /* ── IMAGE PLACEHOLDERS ─── */
 .img-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: opacity 0.2s;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.6rem; font-family: var(--mono); font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase; position: relative;
+  overflow: hidden; cursor: pointer; transition: opacity 0.2s;
 }
 .img-placeholder:hover { opacity: 0.82; }
-.img-placeholder svg { opacity: 0.55; }
-.img-placeholder span { opacity: 0.72; }
 .profile-avatar .img-placeholder {
   background: linear-gradient(135deg, var(--lilac-deep) 0%, var(--lilac-dark) 100%);
   border: 2px dashed rgba(212,176,232,0.5);
   color: var(--lilac-light);
-}
-.proj-thumb .img-placeholder::after {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  border: 1.5px dashed currentColor;
-  opacity: 0.22;
-  pointer-events: none;
 }
 
 @media (max-width: 960px) {
@@ -632,14 +704,12 @@ footer {
   .hero-bottom { flex-direction: column; gap: 0.5rem; padding: 1rem 1.5rem; }
   section { padding: 4rem 1.5rem; }
   .about-layout { grid-template-columns: 1fr; }
+  .skills-groups { grid-template-columns: 1fr; }
   .tl-spine::before { left: 20px; }
   .tl-row { grid-template-columns: 1fr; gap: 0; }
-  .tl-row.odd .tl-img,
-  .tl-row.even .tl-img  { order: 1; }
-  .tl-row.odd .tl-node,
-  .tl-row.even .tl-node { order: 2; display: none; }
-  .tl-row.odd .tl-text,
-  .tl-row.even .tl-text { order: 3; }
+  .tl-row.odd .tl-img, .tl-row.even .tl-img   { order: 1; }
+  .tl-row.odd .tl-node, .tl-row.even .tl-node  { order: 2; display: none; }
+  .tl-row.odd .tl-text, .tl-row.even .tl-text  { order: 3; }
   .tl-img { aspect-ratio: 16/9; }
   .clocks-grid { flex-wrap: wrap; }
   .contact-top { flex-direction: column; align-items: flex-start; }
@@ -654,6 +724,7 @@ footer {
   <a href="#hero" class="nav-logo">SO / ENG</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#timeline">Work & Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -670,7 +741,7 @@ footer {
       Cornelius Vanderbilt Merit Scholar.
     </p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary">See projects</a>
+      <a href="#timeline" class="btn btn-primary">See projects</a>
       <a href="#contact" class="btn btn-secondary">Get in touch</a>
     </div>
   </div>
@@ -751,9 +822,171 @@ footer {
   </div>
 </section>
 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">02 — Skills & Expertise</div>
+  <h2>WHAT I<br>KNOW</h2>
+  <p class="skills-intro">
+    Hands-on certifications from VINSE, research labs, and independent study — spanning nanofabrication,
+    astrophysics, software, and beyond. Hover any chip to explore.
+  </p>
+
+  <div class="skills-groups">
+
+    <div class="skill-group">
+      <div class="skill-group-label">Nanofabrication · VINSE</div>
+      <div class="skill-chips">
+        <span class="skill-chip chip-nano">Photoplotting</span>
+        <span class="skill-chip chip-nano">Photolithography</span>
+        <span class="skill-chip chip-nano">Thin Films</span>
+        <span class="skill-chip chip-nano">Reactive Ion Etching</span>
+        <span class="skill-chip chip-nano">PECVD</span>
+        <span class="skill-chip chip-nano">Chemical Vapor Deposition</span>
+        <span class="skill-chip chip-nano">Graphene</span>
+        <span class="skill-chip chip-nano">Organic Solar Cells</span>
+        <span class="skill-chip chip-nano">Microfluidics</span>
+        <span class="skill-chip chip-nano">Profilometry</span>
+        <span class="skill-chip chip-nano">Electron Beam Evaporation</span>
+        <span class="skill-chip chip-nano">Semiconductor Engineering</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Programming & Tools</div>
+      <div class="skill-chips">
+        <span class="skill-chip chip-code">Python</span>
+        <span class="skill-chip chip-code">C++</span>
+        <span class="skill-chip chip-code">HTML</span>
+        <span class="skill-chip chip-code">CSS</span>
+        <span class="skill-chip chip-code">SQL</span>
+        <span class="skill-chip chip-code">Dart Flutter</span>
+        <span class="skill-chip chip-code">Racket</span>
+        <span class="skill-chip chip-code">Replit</span>
+        <span class="skill-chip chip-code">Qiskit</span>
+        <span class="skill-chip chip-code">Jupyter Notebooks</span>
+        <span class="skill-chip chip-code">Quantum Computing</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Research & Science</div>
+      <div class="skill-chips">
+        <span class="skill-chip chip-research">Astrophysics</span>
+        <span class="skill-chip chip-research">Astronomy</span>
+        <span class="skill-chip chip-research">Data Analysis</span>
+        <span class="skill-chip chip-research">Algebra</span>
+        <span class="skill-chip chip-research">Research Skills</span>
+        <span class="skill-chip chip-research">BPT Diagrams</span>
+        <span class="skill-chip chip-research">Exoplanet Analysis</span>
+        <span class="skill-chip chip-research">Galactic Kinematics</span>
+        <span class="skill-chip chip-research">Translation</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Fabrication & Machining</div>
+      <div class="skill-chips">
+        <span class="skill-chip chip-fab">Lathe</span>
+        <span class="skill-chip chip-fab">Milling</span>
+        <span class="skill-chip chip-fab">CAD Design</span>
+        <span class="skill-chip chip-fab">CAE Modeling</span>
+        <span class="skill-chip chip-fab">3D Printing</span>
+        <span class="skill-chip chip-fab">Mesh Generation</span>
+        <span class="skill-chip chip-fab">Geometry Modeling</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Soft Skills & Leadership</div>
+      <div class="skill-chips">
+        <span class="skill-chip chip-tools">Teamwork</span>
+        <span class="skill-chip chip-tools">Team Lead</span>
+        <span class="skill-chip chip-tools">Communications</span>
+        <span class="skill-chip chip-tools">Strategy</span>
+        <span class="skill-chip chip-tools">Teaching</span>
+        <span class="skill-chip chip-tools">Mentorship</span>
+        <span class="skill-chip chip-tools">English</span>
+        <span class="skill-chip chip-tools">Turkish (Native)</span>
+        <span class="skill-chip chip-tools">German (B1)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Interests & Hobbies</div>
+      <div class="skill-chips">
+        <span class="skill-chip chip-other">Go / Baduk / Weiqi</span>
+        <span class="skill-chip chip-other">Coffee</span>
+        <span class="skill-chip chip-other">Motorsports</span>
+        <span class="skill-chip chip-other">Hiking</span>
+        <span class="skill-chip chip-other">Cooking</span>
+        <span class="skill-chip chip-other">Russian Literature</span>
+        <span class="skill-chip chip-other">English Literature</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- scrolling marquee of all skills -->
+  <div class="skills-marquee-wrap">
+    <div class="skills-marquee">
+      <span class="marquee-item">Photoplotting</span>
+      <span class="marquee-item">Photolithography</span>
+      <span class="marquee-item">CVD</span>
+      <span class="marquee-item">PECVD</span>
+      <span class="marquee-item">Reactive Ion Etching</span>
+      <span class="marquee-item">Graphene</span>
+      <span class="marquee-item">Microfluidics</span>
+      <span class="marquee-item">Profilometry</span>
+      <span class="marquee-item">Electron Beam Evaporation</span>
+      <span class="marquee-item">Python</span>
+      <span class="marquee-item">C++</span>
+      <span class="marquee-item">Qiskit</span>
+      <span class="marquee-item">Quantum Computing</span>
+      <span class="marquee-item">Astrophysics</span>
+      <span class="marquee-item">BPT Diagrams</span>
+      <span class="marquee-item">Lathe</span>
+      <span class="marquee-item">Milling</span>
+      <span class="marquee-item">3D Printing</span>
+      <span class="marquee-item">Go / Baduk</span>
+      <span class="marquee-item">Coffee ☕</span>
+      <span class="marquee-item">Thin Films</span>
+      <span class="marquee-item">Organic Solar Cells</span>
+      <span class="marquee-item">HTML · CSS · SQL</span>
+      <span class="marquee-item">Dart Flutter</span>
+      <span class="marquee-item">Semiconductor Engineering</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">Photoplotting</span>
+      <span class="marquee-item">Photolithography</span>
+      <span class="marquee-item">CVD</span>
+      <span class="marquee-item">PECVD</span>
+      <span class="marquee-item">Reactive Ion Etching</span>
+      <span class="marquee-item">Graphene</span>
+      <span class="marquee-item">Microfluidics</span>
+      <span class="marquee-item">Profilometry</span>
+      <span class="marquee-item">Electron Beam Evaporation</span>
+      <span class="marquee-item">Python</span>
+      <span class="marquee-item">C++</span>
+      <span class="marquee-item">Qiskit</span>
+      <span class="marquee-item">Quantum Computing</span>
+      <span class="marquee-item">Astrophysics</span>
+      <span class="marquee-item">BPT Diagrams</span>
+      <span class="marquee-item">Lathe</span>
+      <span class="marquee-item">Milling</span>
+      <span class="marquee-item">3D Printing</span>
+      <span class="marquee-item">Go / Baduk</span>
+      <span class="marquee-item">Coffee ☕</span>
+      <span class="marquee-item">Thin Films</span>
+      <span class="marquee-item">Organic Solar Cells</span>
+      <span class="marquee-item">HTML · CSS · SQL</span>
+      <span class="marquee-item">Dart Flutter</span>
+      <span class="marquee-item">Semiconductor Engineering</span>
+    </div>
+  </div>
+</section>
+
 <!-- COMBINED WORK & PROJECTS TIMELINE -->
 <section id="timeline">
-  <div class="section-tag">02 — Work & Projects</div>
+  <div class="section-tag">03 — Work & Projects</div>
   <h2>THE FULL<br>JOURNEY</h2>
 
   <div class="tl-spine">
@@ -762,20 +995,15 @@ footer {
       <div class="tl-img">
         <img src="amazon.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
-      <div class="tl-node">
-        <div class="tl-diamond"></div>
-        <div class="tl-year">2024</div>
-      </div>
+      <div class="tl-node"><div class="tl-diamond"></div><div class="tl-year">2024</div></div>
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Experience</div>
         <div class="tl-org">Amazon · Nashville, TN</div>
         <div class="tl-title">INTERN</div>
         <p class="tl-desc">Developed communication plans for Reduction in Force and RTO initiatives. Collected and analyzed data from 500 workers, collaborating across 5 teams to align strategies with organizational needs.</p>
         <div class="tl-tags">
-          <span class="tl-tag">Data Analysis</span>
-          <span class="tl-tag">Communications</span>
-          <span class="tl-tag">Strategy</span>
-          <span class="tl-tag">Aug–Dec 2024</span>
+          <span class="tl-tag">Data Analysis</span><span class="tl-tag">Communications</span>
+          <span class="tl-tag">Strategy</span><span class="tl-tag">Aug–Dec 2024</span>
         </div>
       </div>
     </div>
@@ -787,16 +1015,11 @@ footer {
         <div class="tl-title">TECH CREW</div>
         <p class="tl-desc">Acquired certification in nanoscale engineering processes. Supported 20 researchers with equipment setup and calibration. Developed reusable graphene devices through CVD growth recipes and circuit designs.</p>
         <div class="tl-tags">
-          <span class="tl-tag">CVD Growth</span>
-          <span class="tl-tag">Graphene</span>
-          <span class="tl-tag">Nanofabrication</span>
-          <span class="tl-tag">Dec 2024–Present</span>
+          <span class="tl-tag">CVD Growth</span><span class="tl-tag">Graphene</span>
+          <span class="tl-tag">Nanofabrication</span><span class="tl-tag">Dec 2024–Present</span>
         </div>
       </div>
-      <div class="tl-node">
-        <div class="tl-diamond"></div>
-        <div class="tl-year">2024</div>
-      </div>
+      <div class="tl-node"><div class="tl-diamond"></div><div class="tl-year">2024</div></div>
       <div class="tl-img">
         <img src="vinse.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
@@ -806,20 +1029,15 @@ footer {
       <div class="tl-img">
         <img src="bio.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
-      <div class="tl-node">
-        <div class="tl-diamond"></div>
-        <div class="tl-year">2024</div>
-      </div>
+      <div class="tl-node"><div class="tl-diamond"></div><div class="tl-year">2024</div></div>
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
         <div class="tl-org">Bellan Lab for Advanced Materials · Vanderbilt</div>
         <div class="tl-title">RESEARCH ASSISTANT</div>
         <p class="tl-desc">Investigating advanced microfabrication techniques to enhance engineered tissues. Utilizing mechanical stimulation to guide vascularization in controlled lab environments with strict sterile protocols.</p>
         <div class="tl-tags">
-          <span class="tl-tag">Microfabrication</span>
-          <span class="tl-tag">Tissue Engineering</span>
-          <span class="tl-tag">Sterile Lab</span>
-          <span class="tl-tag">Sep 2024–Present</span>
+          <span class="tl-tag">Microfabrication</span><span class="tl-tag">Tissue Engineering</span>
+          <span class="tl-tag">Sterile Lab</span><span class="tl-tag">Sep 2024–Present</span>
         </div>
       </div>
     </div>
@@ -831,16 +1049,11 @@ footer {
         <div class="tl-title">RESEARCH INTERN — EXOPLANETS</div>
         <p class="tl-desc">Worked in Prof. Plavchan's Astrophysics group studying exoplanetary systems and habitability. Invited to participate in a NASA-designated summer program, gaining hands-on space science experience.</p>
         <div class="tl-tags">
-          <span class="tl-tag">Exoplanets</span>
-          <span class="tl-tag">NASA</span>
-          <span class="tl-tag">Astrobiology</span>
-          <span class="tl-tag">Jun 2023–Sep 2024</span>
+          <span class="tl-tag">Exoplanets</span><span class="tl-tag">NASA</span>
+          <span class="tl-tag">Astrobiology</span><span class="tl-tag">Jun 2023–Sep 2024</span>
         </div>
       </div>
-      <div class="tl-node">
-        <div class="tl-diamond"></div>
-        <div class="tl-year">2023</div>
-      </div>
+      <div class="tl-node"><div class="tl-diamond"></div><div class="tl-year">2023</div></div>
       <div class="tl-img">
         <img src="exo.gif" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
@@ -850,20 +1063,15 @@ footer {
       <div class="tl-img">
         <img src="tri.gif" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
-      <div class="tl-node">
-        <div class="tl-diamond"></div>
-        <div class="tl-year">2022</div>
-      </div>
+      <div class="tl-node"><div class="tl-diamond"></div><div class="tl-year">2022</div></div>
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
         <div class="tl-org">University of California, Santa Cruz</div>
         <div class="tl-title">IONIZED GAS KINEMATICS — M33 & ANDROMEDA</div>
         <p class="tl-desc">Created 250 BPT diagrams using Python to analyze star-forming regions in M33 and Andromeda Galaxies. Studied Broad Emission-Lined Luminous Sources (BELLS), contributing insights into galactic formation.</p>
         <div class="tl-tags">
-          <span class="tl-tag">Python</span>
-          <span class="tl-tag">BPT Diagrams</span>
-          <span class="tl-tag">Astrophysics</span>
-          <span class="tl-tag">May 2022–Sep 2024</span>
+          <span class="tl-tag">Python</span><span class="tl-tag">BPT Diagrams</span>
+          <span class="tl-tag">Astrophysics</span><span class="tl-tag">May 2022–Sep 2024</span>
         </div>
       </div>
     </div>
@@ -875,16 +1083,11 @@ footer {
         <div class="tl-title">AEROSPACE MESH OPTIMIZATION</div>
         <p class="tl-desc">Gained experience in 4 mesh generation algorithms and optimization using Halton sequences, improving computational efficiency. Applied Python and CAD/CAE tools for geometry modeling and aerodynamic simulations.</p>
         <div class="tl-tags">
-          <span class="tl-tag">Python</span>
-          <span class="tl-tag">Mesh Algorithms</span>
-          <span class="tl-tag">CAD/CAE</span>
-          <span class="tl-tag">May–Aug 2022</span>
+          <span class="tl-tag">Python</span><span class="tl-tag">Mesh Algorithms</span>
+          <span class="tl-tag">CAD/CAE</span><span class="tl-tag">May–Aug 2022</span>
         </div>
       </div>
-      <div class="tl-node">
-        <div class="tl-diamond"></div>
-        <div class="tl-year">2022</div>
-      </div>
+      <div class="tl-node"><div class="tl-diamond"></div><div class="tl-year">2022</div></div>
       <div class="tl-img">
         <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
@@ -894,20 +1097,15 @@ footer {
       <div class="tl-img">
         <img src="tool.gif" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
-      <div class="tl-node">
-        <div class="tl-diamond"></div>
-        <div class="tl-year">2021</div>
-      </div>
+      <div class="tl-node"><div class="tl-diamond"></div><div class="tl-year">2021</div></div>
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Project · Award</div>
         <div class="tl-org">NASA SpaceApps Hackathon · Global Finalist</div>
         <div class="tl-title">3D-PRINTED APOLLO TOOLKIT — 1ST IN TURKEY</div>
         <p class="tl-desc">Led a team of 7 designing a low-cost, 3D-printable toolkit inspired by the Apollo mission, optimized for reduced weight and full digital fabrication. Achieved 1st place in Turkey and became a global finalist.</p>
         <div class="tl-tags">
-          <span class="tl-tag">3D Printing</span>
-          <span class="tl-tag">Team Lead</span>
-          <span class="tl-tag">🏆 1st in Turkey</span>
-          <span class="tl-tag">2021–2023</span>
+          <span class="tl-tag">3D Printing</span><span class="tl-tag">Team Lead</span>
+          <span class="tl-tag">🏆 1st in Turkey</span><span class="tl-tag">2021–2023</span>
         </div>
       </div>
     </div>
@@ -917,8 +1115,7 @@ footer {
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-tag">03 — Contact</div>
- 
+  <div class="section-tag">04 — Contact</div>
   <div class="contact-top">
     <h2>LET'S<br>CONNECT.</h2>
     <div class="contact-links-inline">
@@ -936,7 +1133,6 @@ footer {
       </a>
     </div>
   </div>
- 
   <div class="clocks-grid">
     <div class="world-clock" data-tz="Europe/Istanbul" data-city="Hatay" data-country="Turkey" data-note="hometown"></div>
     <div class="world-clock" data-tz="Europe/Istanbul" data-city="İzmir" data-country="Turkey" data-note="second home"></div>
@@ -945,100 +1141,87 @@ footer {
     <div class="world-clock" data-tz="America/Los_Angeles" data-city="Los Angeles" data-country="CA · US" data-note="future home"></div>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="foot-logo">SO / ENG</div>
   <div class="foot-copy">© 2026 Sahpar Ozer — Nashville, TN · Vanderbilt University</div>
   <div class="foot-links">
     <a href="#about">About</a>
+    <a href="#skills">Skills</a>
     <a href="#timeline">Work & Projects</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
- 
+
 <script>
 function drawClock(card) {
   const tz = card.dataset.tz;
   const city = card.dataset.city;
   const country = card.dataset.country;
   const note = card.dataset.note;
- 
+
   const now = new Date();
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone: tz,
     hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
   }).formatToParts(now);
- 
+
   let h = 0, m = 0, s = 0, ampm = '';
   parts.forEach(p => {
-    if (p.type === 'hour')   h = parseInt(p.value);
-    if (p.type === 'minute') m = parseInt(p.value);
-    if (p.type === 'second') s = parseInt(p.value);
+    if (p.type === 'hour')      h = parseInt(p.value);
+    if (p.type === 'minute')    m = parseInt(p.value);
+    if (p.type === 'second')    s = parseInt(p.value);
     if (p.type === 'dayPeriod') ampm = p.value;
   });
- 
-  const secDeg   = s * 6;
-  const minDeg   = m * 6 + s * 0.1;
-  const hourDeg  = (h % 12) * 30 + m * 0.5;
- 
-  const digitalH = String(h).padStart(2, '0');
-  const digitalM = String(m).padStart(2, '0');
-  const digitalS = String(s).padStart(2, '0');
- 
-  // tick marks - smaller clock (50x50 viewBox)
+
+  const secDeg  = s * 6;
+  const minDeg  = m * 6 + s * 0.1;
+  const hourDeg = (h % 12) * 30 + m * 0.5;
+
+  const dH = String(h).padStart(2,'0');
+  const dM = String(m).padStart(2,'0');
+  const dS = String(s).padStart(2,'0');
+
   let ticks = '';
   for (let i = 0; i < 12; i++) {
     const angle = i * 30;
-    const len = 3;
-    const r1 = 22;
-    const r2 = r1 - len;
+    const r1 = 22, r2 = 19;
     const rad = (angle - 90) * Math.PI / 180;
-    const x1 = 25 + r1 * Math.cos(rad);
-    const y1 = 25 + r1 * Math.sin(rad);
-    const x2 = 25 + r2 * Math.cos(rad);
-    const y2 = 25 + r2 * Math.sin(rad);
-    ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"
-      stroke="rgba(212,176,232,0.6)" stroke-width="0.8"/>`;
+    const x1 = 25 + r1 * Math.cos(rad), y1 = 25 + r1 * Math.sin(rad);
+    const x2 = 25 + r2 * Math.cos(rad), y2 = 25 + r2 * Math.sin(rad);
+    ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="rgba(212,176,232,0.6)" stroke-width="0.8"/>`;
   }
- 
-  function hand(deg, length, width, color, opacity = 1) {
+
+  function hand(deg, len, w, color, op=1) {
     const rad = (deg - 90) * Math.PI / 180;
-    const x = 25 + length * Math.cos(rad);
-    const y = 25 + length * Math.sin(rad);
-    return `<line x1="25" y1="25" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"
-      stroke="${color}" stroke-width="${width}" stroke-linecap="round" opacity="${opacity}"/>`;
+    const x = 25 + len * Math.cos(rad), y = 25 + len * Math.sin(rad);
+    return `<line x1="25" y1="25" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${color}" stroke-width="${w}" stroke-linecap="round" opacity="${op}"/>`;
   }
- 
+
   const svg = `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
     <circle cx="25" cy="25" r="23.5" fill="none" stroke="rgba(176,132,204,0.2)" stroke-width="0.6"/>
     <circle cx="25" cy="25" r="22" fill="rgba(61,31,92,0.6)"/>
     ${ticks}
-    ${hand(hourDeg, 13, 1.5, '#d4b0e8')}
-    ${hand(minDeg,  17, 1.2, '#d4b0e8')}
-    ${hand(secDeg,  19, 0.7, '#b084cc', 0.9)}
+    ${hand(hourDeg,13,1.5,'#d4b0e8')}
+    ${hand(minDeg,17,1.2,'#d4b0e8')}
+    ${hand(secDeg,19,0.7,'#b084cc',0.9)}
     <circle cx="25" cy="25" r="1.5" fill="#b084cc"/>
     <circle cx="25" cy="25" r="0.7" fill="#d4b0e8"/>
   </svg>`;
- 
+
   card.innerHTML = `
     <div class="analog-wrap">${svg}</div>
     <div style="text-align:center;">
-      <div class="wc-digital">${digitalH}:${digitalM}:${digitalS}</div>
+      <div class="wc-digital">${dH}:${dM}:${dS}</div>
       <div class="wc-ampm">${ampm}</div>
     </div>
     <div class="wc-city">${city}</div>
-    <div class="wc-sub">
-      <span>${country}</span>
-      <span class="wc-note">${note}</span>
-    </div>
+    <div class="wc-sub"><span>${country}</span><span class="wc-note">${note}</span></div>
   `;
 }
- 
-function tickAll() {
-  document.querySelectorAll('.world-clock').forEach(drawClock);
-}
- 
+
+function tickAll() { document.querySelectorAll('.world-clock').forEach(drawClock); }
 tickAll();
 setInterval(tickAll, 1000);
 </script>
