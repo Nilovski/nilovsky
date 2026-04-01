@@ -315,7 +315,6 @@ h2 {
 #timeline .section-tag { color: var(--lilac-light); }
 #timeline h2 { color: var(--white); }
 
-/* centre spine */
 .tl-spine {
   position: relative;
   padding: 0 0 2rem;
@@ -333,7 +332,6 @@ h2 {
   );
 }
 
-/* each row */
 .tl-row {
   display: grid;
   grid-template-columns: 1fr 60px 1fr;
@@ -344,7 +342,6 @@ h2 {
 }
 .tl-row:last-child { margin-bottom: 0; }
 
-/* diamond node on spine */
 .tl-node {
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   position: relative; z-index: 2;
@@ -365,7 +362,6 @@ h2 {
   white-space: nowrap;
 }
 
-/* image panel */
 .tl-img {
   width: 100%;
   aspect-ratio: 4/3;
@@ -380,13 +376,11 @@ h2 {
 }
 .tl-row:hover .tl-img img { transform: scale(1.04); }
 
-/* image placeholder inside tl-img */
 .tl-img .img-placeholder {
   width: 100%; height: 100%;
   min-height: 260px;
 }
 
-/* text panel */
 .tl-text {
   padding: 2rem 2.5rem;
   background: rgba(255,255,255,0.04);
@@ -397,12 +391,10 @@ h2 {
 }
 .tl-row:hover .tl-text { background: rgba(255,255,255,0.08); }
 
-/* even rows: image right, text left */
 .tl-row.even .tl-img  { order: 3; }
 .tl-row.even .tl-node { order: 2; }
 .tl-row.even .tl-text { order: 1; }
 
-/* odd rows: image left, text right (default) */
 .tl-row.odd .tl-img  { order: 1; }
 .tl-row.odd .tl-node { order: 2; }
 .tl-row.odd .tl-text { order: 3; }
@@ -456,114 +448,118 @@ h2 {
 }
 
 /* ── CONTACT ─── */
-#contact { background: var(--mist); }
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  align-items: start;
+#contact { background: var(--lilac-dark); padding: 6rem 4rem; }
+#contact .section-tag { color: var(--lilac-light); }
+
+.contact-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
-.contact-panel-left {
-  background: var(--lilac-dark);
-  padding: 3.5rem;
-  position: relative;
-  overflow: hidden;
-  min-height: 580px;
-  display: flex; flex-direction: column; justify-content: flex-end;
+.contact-top h2 { color: var(--white); margin-bottom: 0; }
+.contact-links-inline {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
-.contact-panel-left::before {
-  content: 'LETS\ATALK';
-  white-space: pre;
-  font-family: var(--display);
-  font-size: 13rem;
-  line-height: 0.82;
-  color: rgba(255,255,255,0.04);
-  position: absolute;
-  top: 1.5rem; left: 2rem;
-  letter-spacing: 0.02em;
-  pointer-events: none;
-}
-.contact-panel-left h2 { color: var(--white); margin-bottom: 1rem; font-size: 3.5rem; }
-.contact-panel-left p { color: #c9a8e0; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2.5rem; }
-.contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-.contact-link-row {
-  display: flex; align-items: center; gap: 1rem;
-  padding: 1rem 1.25rem;
-  background: rgba(255,255,255,0.04);
-  border-left: 3px solid transparent;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.contact-link-row:hover { background: rgba(255,255,255,0.08); border-left-color: var(--lilac); }
-.contact-link-icon {
+.contact-pill {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(176,132,204,0.25);
   font-family: var(--mono);
   font-size: 0.7rem;
   color: var(--lilac-light);
-  width: 28px;
-  text-align: center;
-}
-.contact-link-text {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: #c9a8e0;
-}
-.contact-link-row:hover .contact-link-text { color: var(--white); }
-
-.contact-panel-right {
-  background: var(--lilac);
-  padding: 3.5rem;
-}
-.contact-panel-right h3 {
-  font-family: var(--display);
-  font-size: 2rem;
-  color: white;
-  letter-spacing: 0.04em;
-  margin-bottom: 2rem;
-}
-.field-group { margin-bottom: 1.25rem; }
-.field-label {
-  display: block;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-}
-.field-input, .field-textarea {
-  width: 100%;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 0.85rem 1rem;
-  color: white;
-  font-family: var(--body);
-  font-size: 0.92rem;
-  outline: none;
-  border-radius: 0;
   transition: background 0.2s, border-color 0.2s;
 }
-.field-input::placeholder, .field-textarea::placeholder { color: rgba(255,255,255,0.4); }
-.field-input:focus, .field-textarea:focus {
-  background: rgba(255,255,255,0.22);
-  border-color: var(--lilac-light);
-}
-.field-textarea { min-height: 130px; resize: vertical; }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-.submit-btn {
-  width: 100%; margin-top: 0.5rem;
-  background: var(--lilac-dark);
-  color: var(--white);
+.contact-pill:hover { background: rgba(176,132,204,0.2); border-color: var(--lilac); color: var(--white); }
+.contact-pill-icon { color: var(--lilac); }
+
+/* Make the clocks grid horizontal */
+.clocks-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: stretch;
+  overflow-x: auto;
+  background: none;
   border: none;
-  padding: 1rem;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  transition: background 0.2s, transform 0.15s;
 }
-.submit-btn:hover { background: var(--lilac-deep); transform: translateY(-1px); }
+
+/* Much smaller clock containers */
+.world-clock {
+  background: var(--lilac-dark);
+  padding: 0.5rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-width: 80px;
+  flex: 1;
+  border: 1px solid rgba(176,132,204,0.15);
+}
+.world-clock:hover { background: rgba(176,132,204,0.1); }
+
+/* Tiny analog clock */
+.analog-wrap { 
+  position: relative; 
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0; 
+}
+.analog-wrap svg { width: 100%; height: 100%; }
+
+/* Tiny text */
+.wc-digital {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.wc-ampm {
+  font-family: var(--mono);
+  font-size: 0.45rem;
+  color: var(--lilac);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+.wc-city {
+  font-family: var(--display);
+  font-size: 0.75rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+}
+.wc-sub {
+  font-family: var(--mono);
+  font-size: 0.45rem;
+  color: var(--lilac-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.1rem;
+}
+.wc-note {
+  color: var(--lilac);
+  font-size: 0.4rem;
+  letter-spacing: 0.06em;
+}
 
 /* ── FOOTER ─── */
 footer {
@@ -615,13 +611,11 @@ footer {
 .img-placeholder:hover { opacity: 0.82; }
 .img-placeholder svg { opacity: 0.55; }
 .img-placeholder span { opacity: 0.72; }
-/* Profile photo: dashed border style */
 .profile-avatar .img-placeholder {
   background: linear-gradient(135deg, var(--lilac-deep) 0%, var(--lilac-dark) 100%);
   border: 2px dashed rgba(212,176,232,0.5);
   color: var(--lilac-light);
 }
-/* Project thumbs: subtle inner dashed frame */
 .proj-thumb .img-placeholder::after {
   content: '';
   position: absolute;
@@ -631,9 +625,6 @@ footer {
   pointer-events: none;
 }
 
-
-
-/* ── RESPONSIVE ─── */
 @media (max-width: 960px) {
   nav { padding: 0 1.5rem; }
   .nav-links { display: none; }
@@ -651,7 +642,8 @@ footer {
   .tl-row.odd .tl-text,
   .tl-row.even .tl-text { order: 3; }
   .tl-img { aspect-ratio: 16/9; }
-  .contact-layout { grid-template-columns: 1fr; }
+  .clocks-grid { flex-wrap: wrap; }
+  .contact-top { flex-direction: column; align-items: flex-start; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
@@ -745,7 +737,7 @@ footer {
     </div>
     <div class="profile-card">
       <div class="profile-avatar">
-        <img src="linkedin.jpg" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;">
       </div>
       <div class="profile-name">SAHPAR OZER</div>
       <div class="profile-title">BE Mechanical Engineering & Economics</div>
@@ -767,10 +759,10 @@ footer {
 
   <div class="tl-spine">
 
-    <!-- 1: Amazon — odd (image left) -->
+    <!-- 1: Amazon -->
     <div class="tl-row odd type-experience">
       <div class="tl-img">
-        <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
       <div class="tl-node">
         <div class="tl-diamond"></div>
@@ -790,7 +782,7 @@ footer {
       </div>
     </div>
 
-    <!-- 2: VINSE — even (image right) -->
+    <!-- 2: VINSE -->
     <div class="tl-row even type-experience">
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Experience</div>
@@ -809,14 +801,14 @@ footer {
         <div class="tl-year">2024</div>
       </div>
       <div class="tl-img">
-        <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
     </div>
 
-    <!-- 3: Bellan Lab — odd (image left) -->
+    <!-- 3: Bellan Lab -->
     <div class="tl-row odd type-experience">
       <div class="tl-img">
-        <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
       <div class="tl-node">
         <div class="tl-diamond"></div>
@@ -836,7 +828,7 @@ footer {
       </div>
     </div>
 
-    <!-- 4: George Mason / NASA — even (image right) -->
+    <!-- 4: George Mason / NASA -->
     <div class="tl-row even type-experience">
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
@@ -855,14 +847,14 @@ footer {
         <div class="tl-year">2023</div>
       </div>
       <div class="tl-img">
-        <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
     </div>
 
-    <!-- 5: UC Santa Cruz — odd (image left) -->
+    <!-- 5: UC Santa Cruz -->
     <div class="tl-row odd type-project">
       <div class="tl-img">
-        <img src="m33.png" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
       <div class="tl-node">
         <div class="tl-diamond"></div>
@@ -882,7 +874,7 @@ footer {
       </div>
     </div>
 
-    <!-- 6: ITU Aerospace — even (image right) — uses wind_tunnel.jpg -->
+    <!-- 6: ITU Aerospace -->
     <div class="tl-row even type-project">
       <div class="tl-text">
         <div class="tl-type"><span class="tl-type-dot"></span>Research</div>
@@ -901,14 +893,14 @@ footer {
         <div class="tl-year">2022</div>
       </div>
       <div class="tl-img">
-        <img src="wind tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
     </div>
 
-    <!-- 7: NASA SpaceApps — odd (image left) -->
+    <!-- 7: NASA SpaceApps -->
     <div class="tl-row odd type-project">
       <div class="tl-img">
-        <img src="toolkit.png" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+        <img src="wind_tunnel.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
       </div>
       <div class="tl-node">
         <div class="tl-diamond"></div>
@@ -931,132 +923,9 @@ footer {
   </div>
 </section>
 
- 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-tag">03 — Contact</div>
- 
+
   <div class="contact-top">
-    <h2>LET'S<br>CONNECT.</h2>
-    <div class="contact-links-inline">
-      <a href="mailto:sahpar.n.ozer@vanderbilt.edu" class="contact-pill">
-        <span class="contact-pill-icon">@</span> sahpar.n.ozer@vanderbilt.edu
-      </a>
-      <a href="tel:+16155218787" class="contact-pill">
-        <span class="contact-pill-icon">↗</span> (615) 521-8787
-      </a>
-      <a href="https://linkedin.com" target="_blank" class="contact-pill">
-        <span class="contact-pill-icon">in</span> LinkedIn
-      </a>
-      <a href="#" class="contact-pill">
-        <span class="contact-pill-icon">↓</span> Resume
-      </a>
-    </div>
-  </div>
- 
-  <div class="clocks-grid">
-    <div class="world-clock" data-tz="Europe/Istanbul" data-city="Hatay" data-country="Turkey" data-note="hometown"></div>
-    <div class="world-clock" data-tz="Europe/Istanbul" data-city="İzmir" data-country="Turkey" data-note="high school"></div>
-    <div class="world-clock" data-tz="America/Chicago" data-city="Nashville" data-country="TN · US" data-note="current home"></div>
-    <div class="world-clock" data-tz="America/New_York" data-city="New York" data-country="NY · US" data-note="the city"></div>
-    <div class="world-clock" data-tz="America/Los_Angeles" data-city="Los Angeles" data-country="CA · US" data-note="west coast"></div>
-  </div>
-</section>
- 
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo">SO / ENG</div>
-  <div class="foot-copy">© 2026 Sahpar Ozer — Nashville, TN · Vanderbilt University</div>
-  <div class="foot-links">
-    <a href="#about">About</a>
-    <a href="#timeline">Work & Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</footer>
- 
-<script>
-function drawClock(card) {
-  const tz = card.dataset.tz;
-  const city = card.dataset.city;
-  const country = card.dataset.country;
-  const note = card.dataset.note;
- 
-  const now = new Date();
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: tz,
-    hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
-  }).formatToParts(now);
- 
-  let h = 0, m = 0, s = 0, ampm = '';
-  parts.forEach(p => {
-    if (p.type === 'hour')   h = parseInt(p.value);
-    if (p.type === 'minute') m = parseInt(p.value);
-    if (p.type === 'second') s = parseInt(p.value);
-    if (p.type === 'dayPeriod') ampm = p.value;
-  });
- 
-  const secDeg   = s * 6;
-  const minDeg   = m * 6 + s * 0.1;
-  const hourDeg  = (h % 12) * 30 + m * 0.5;
- 
-  const digitalH = String(h).padStart(2, '0');
-  const digitalM = String(m).padStart(2, '0');
-  const digitalS = String(s).padStart(2, '0');
- 
-  // tick marks - minimal for tiny size
-  let ticks = '';
-  for (let i = 0; i < 12; i++) {
-    const angle = i * 30;
-    const len = 2;
-    const r1 = 8;
-    const r2 = r1 - len;
-    const rad = (angle - 90) * Math.PI / 180;
-    const x1 = 10 + r1 * Math.cos(rad);
-    const y1 = 10 + r1 * Math.sin(rad);
-    const x2 = 10 + r2 * Math.cos(rad);
-    const y2 = 10 + r2 * Math.sin(rad);
-    ticks += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"
-      stroke="rgba(212,176,232,0.5)" stroke-width="0.4"/>`;
-  }
- 
-  function hand(deg, length, width, color, opacity = 1) {
-    const rad = (deg - 90) * Math.PI / 180;
-    const x = 10 + length * Math.cos(rad);
-    const y = 10 + length * Math.sin(rad);
-    return `<line x1="10" y1="10" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"
-      stroke="${color}" stroke-width="${width}" stroke-linecap="round" opacity="${opacity}"/>`;
-  }
- 
-  const svg = `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="10" cy="10" r="9.5" fill="none" stroke="rgba(176,132,204,0.2)" stroke-width="0.3"/>
-    <circle cx="10" cy="10" r="9" fill="rgba(61,31,92,0.6)"/>
-    ${ticks}
-    ${hand(hourDeg, 5, 0.8, '#d4b0e8')}
-    ${hand(minDeg,  7, 0.6, '#d4b0e8')}
-    ${hand(secDeg,  8, 0.4, '#b084cc', 0.9)}
-    <circle cx="10" cy="10" r="0.8" fill="#b084cc"/>
-  </svg>`;
- 
-  card.innerHTML = `
-    <div class="analog-wrap">${svg}</div>
-    <div style="text-align:center;">
-      <div class="wc-digital">${digitalH}:${digitalM}:${digitalS}</div>
-      <div class="wc-ampm">${ampm}</div>
-    </div>
-    <div class="wc-city">${city}</div>
-    <div class="wc-sub">
-      <span>${country}</span>
-      <span class="wc-note">${note}</span>
-    </div>
-  `;
-}
- 
-function tickAll() {
-  document.querySelectorAll('.world-clock').forEach(drawClock);
-}
- 
-tickAll();
-setInterval(tickAll, 1000);
-</script>
-</body>
-</html>
+    <h2>L
